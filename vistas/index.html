@@ -10,44 +10,93 @@
     <link rel="stylesheet" href="../styles/index.css">
 </head>
 <body> 
+    <div class="grid">
+        <header>
+            <nav class="nav">
+                <img class="imgBuscador" src="../img/buscador.png" alt="buscador">
+                <input type="text" placeholder="Buscar productos...">  
 
-    <header>
-        <nav class="nav">
-            <img class="imgBuscador" src="../img/buscador.png" alt="buscador">
-            <input type="text" placeholder="Buscar productos...">  
+                <div class="navDetalles">
+                    <p>Favoritos</p>
 
-             <div class="navDetalles">
-                 <p>Favoritos</p>
-
-                 <select name="categorias" id="categorias">
-                    <option value="">Productos</option>
-                    <option value="">Masculino</option>
-                    <option value="">Femenino</option>
-                    <option value="">Color</option>
-                    <option value="">Categoria</option>
-                 </select>
-                 <p class="nombrePagina">Lana & Lino</p>
-                 <img src="../img/profile-user.png" alt="perfilUsuario" class="perfilUsuario">
-                 <img src="../img/cart.png" alt="carrito" class="carrito">
-                 <p>Iniciar sesion</p>
-                 <img src="../img/dark-mode.png" alt="modoOscuro" class="modoOscuro">
-             </div>
-        </nav>
-    </header>
-
-    <section class="presentacion">
-        <h1>Bienvenido a Lana & Lino!</h1>
-    </section>
-
-    <footer class="footer">
-        <div>
-            <img src="../img/instagram.png" alt="instagram">
-            <p>lana&lino@gmail.com</p>
-            <img src="../img/whatsapp.png" alt="whatsapp">
-            <p>342-5445165</p>
-            <p>Desarrolladores - Aiello Lautaro - Cacciabue Santiago</p>
-        </div>
-    </footer>
+                    <select name="categorias" id="categorias">
+                        <option value="">Productos</option>
+                        <option value="">Masculino</option>
+                        <option value="">Femenino</option>
+                        <option value="">Color</option>
+                        <option value="">Categoria</option>
+                    </select>
+                    <p class="nombrePagina">Lana & Lino</p>
+                    <img src="../img/profile-user.png" alt="perfilUsuario" class="perfilUsuario">
+                    <img src="../img/cart.png" alt="carrito" class="carrito">
+                    <p>Iniciar sesion</p>
+                    <img src="../img/dark-mode.png" alt="modoOscuro" class="modoOscuro">
+                </div>
+            </nav>
+        </header>
+        <main class="main">
+            <section class="presentacion">
+                <h1>Bienvenido a Lana & Lino!</h1>
+                <h2>Descubri nuevos outfits con nuestras prendas</h2>
+            </section>
+            <section class="carruselFotos">
+                <div class="card">
+                    <img src="../img/remera1.jpg" alt="remera1">
+                    <div class="descripcionCard">
+                        <p>Remeras</p>
+                        <p>Favoritos</p>
+                    </div>
+                    <p>$12000</p>
+                    <button class="btnAgregarCarrito">Agregar al carrito</button>
+                </div>
+                <div class="card">
+                    <img src="../img/remera1.jpg" alt="remera1">
+                    <div class="descripcionCard">
+                        <p>Remeras</p>
+                        <p>Favoritos</p>
+                    </div>
+                    <p>$12000</p>
+                    <button class="btnAgregarCarrito">Agregar al carrito</button>
+                </div>
+                <div class="card">
+                    <img src="../img/remera1.jpg" alt="remera1">
+                    <div class="descripcionCard">
+                        <p>Remeras</p>
+                        <p>Favoritos</p>
+                    </div>
+                    <p>$12000</p>
+                    <button class="btnAgregarCarrito">Agregar al carrito</button>
+                </div>
+                <div class="card">
+                    <img src="../img/remera1.jpg" alt="remera1">
+                    <div class="descripcionCard">
+                        <p>Remeras</p>
+                        <p>Favoritos</p>
+                    </div>
+                    <p>$12000</p>
+                    <button class="btnAgregarCarrito">Agregar al carrito</button>
+                </div>
+                <div class="card">
+                    <img src="../img/remera1.jpg" alt="remera1">
+                    <div class="descripcionCard">
+                        <p>Remeras</p>
+                        <p>Favoritos</p>
+                    </div>
+                    <p>$12000</p>
+                    <button class="btnAgregarCarrito">Agregar al carrito</button>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div>
+                <img src="../img/instagram.png" alt="instagram">
+                <p>lana&lino@gmail.com</p>
+                <img src="../img/whatsapp.png" alt="whatsapp">
+                <p>342-5445165</p>
+                <p>Desarrolladores - Aiello Lautaro - Cacciabue Santiago</p>
+            </div>
+        </footer>
+    </div>
 
 <script src="../js/index.js"></script>
 </body>
