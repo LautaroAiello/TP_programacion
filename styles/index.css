@@ -28,8 +28,9 @@
     cursor: pointer;
 }
 .nav select{
-        border: none;
+    border: none;
     background-color: #ffff;
+    cursor: pointer;
 }
 .imgBuscador{
     width: 2%;
@@ -56,4 +57,49 @@
 .perfilUsuario{
     width: 2%;
     background-color: #ffffff;
+}
+.nombrePagina{
+    font-family: "Edu NSW ACT Cursive", cursive;
+    font-optical-sizing: auto;
+    font-weight: 950;
+    font-style: normal;
+}
+
+.presentacion{
+    margin-top: 3%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 6px;
+    padding: 10%;
+    background-image: url('../img/presentacion2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.presentacion h1{
+    color: white;
+    background: none;
+}
+
+
+
+
+
+
+.footer{
+    
+    position: absolute;
+    bottom: 4%;
+        box-shadow: 1px -8px 12px -5px
+}
+.footer div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer p{
+    margin: 10px;
+}
+.footer img{
+    width: 2%;
 }
