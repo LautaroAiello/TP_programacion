@@ -1,0 +1,44 @@
+
+.carritoItems div{
+    width: 70%;
+    display: flex;
+    margin: 10px auto;
+    border-radius: 6px;
+    border: 1px solid;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.imgCarritoPrenda{
+    width: 50px;
+}
+
+.carritoItems img,p{
+    padding: 15px;
+    margin: 4px;
+}
+
+#cantidadCarrito{
+    display: flex;
+    align-items: center;
+}
+#cantidadCarrito p,img{
+    width: 20px;
+}
+
+.totalPagar{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    right: 15%;
+}
+
+.totalPagar button{
+    border-radius: 6px;
+    padding: 12px;
+    box-shadow: 0px 0px 5px 1px;
+    cursor: pointer;
+}

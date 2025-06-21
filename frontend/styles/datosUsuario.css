@@ -1,0 +1,43 @@
+
+.datosUsuario{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 2%;
+    margin-left: 5%;
+}
+.datosUsuario h1{
+    font-size: 55px;
+    margin-left: 8px;
+    margin-bottom: 25px;
+}
+.datosUsuario input{
+    padding: 15px;
+    width: 25%;
+    margin: 12px;
+    box-shadow: 0px 0px 5px 2px;
+    border-radius: 8px;
+}
+.inputsData{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.inputsData img{
+    cursor: pointer;
+    width: 30px;
+}
+
+.inputsData p:hover{
+    color: grey;
+}
+
+.btnDatosUsuario button{
+    padding: 20px;
+    margin: 15px;
+    margin-left: 63px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 7px 1px;
+    cursor: pointer;
+}
