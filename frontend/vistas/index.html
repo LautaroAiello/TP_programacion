@@ -46,12 +46,21 @@
             <div class="registro" id="registro">
                 <img src="../img/cross.png" alt="exit" id="exit" class="exit" onclick="exitRe()">
                 <h2>Registrate</h2>
-                <input type="text" name="nombre" id="nombre" placeholder="Nombre">
-                <input type="text" name="apellido" id="apellido" placeholder="Apellido">
-                <input type="text" name="direccion" id="direccion" placeholder="Direccion">
-                <input type="number" name="telefono" id="telefono" placeholder="Telefono">
-                <input type="text" name="email" id="email" placeholder="E-Mail">
-                <input type="text" name="contraseña" id="contraseña" placeholder="Contraseña">
+                <form id="formularioRegistro" method="post">
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+
+                    <input type="text" name="apellido" id="apellido" placeholder="Apellido">
+
+                    <input type="text" name="direccion" id="direccion" placeholder="Direccion">
+
+                    <input type="number" name="telefono" id="telefono" placeholder="Telefono">
+
+                    <input type="email" id="emailRegistro" name="email" placeholder="E-Mail">
+
+                    <input type="password" id="contraseñaRegistro"  name="contraseña" placeholder="Contraseña">
+
+                    <button type="submit">Registrarse</button>
+                </form>
             </div>
             <section class="presentacion">
                 <h1>Bienvenido a Lana & Lino!</h1>
@@ -115,7 +124,7 @@
             </div>
         </footer>
     </div>
-
+<script src="../js/registroUsuarios.js"></script>
 <script src="../js/index.js"></script>
 </body>
 </html>

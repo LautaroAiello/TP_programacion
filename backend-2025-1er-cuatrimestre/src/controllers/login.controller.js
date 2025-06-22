@@ -1,4 +1,4 @@
-import { getConnection } from "./../database/database";
+import { getConnection } from "./../database/database.js";
 const jwt = require ("jsonwebtoken");
 const secret = process.env.SECRET
 //crear usuario

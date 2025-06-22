@@ -1,13 +1,14 @@
 import express from "express";
 import morgan from "morgan";
+import cors from 'cors';
 
-
-import usuarioRoutes from "./routes/usuario.routes";
-import loginRoutes from "./routes/login.routes";
-import productoRoutes from "./routes/producto.routes";
+import usuarioRoutes from "./routes/usuario.routes.js";
+import loginRoutes from "./routes/login.routes.js";
+import productoRoutes from "./routes/producto.routes.js";
 
 const app = express();
 
+app.use(cors());
 
 app.set("port", 4000);
 

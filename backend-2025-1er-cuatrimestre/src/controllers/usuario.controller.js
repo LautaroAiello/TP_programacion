@@ -1,4 +1,4 @@
-import { getConnection } from "./../database/database";
+import { getConnection } from "./../database/database.js";
 const secret = process.env.secret;
 const jwt = require ("jsonwebtoken");
 
@@ -86,12 +86,12 @@ const crearUsuario = async (req, res) => {
             password,
             email,
             telefono,
-            rol,
+            rol
         }
 
         const connection = await getConnection();
         const response = await connection.query("INSERT INTO usuario set ?",usuario)
-        if(response && response.affectedRows > 0){
+        if(response){
             res.json ({codigo: 200, mensaje: "Usuario registrado exitosamente", payload: [{id_usuario: response.insertId}]});
         }
         else{
