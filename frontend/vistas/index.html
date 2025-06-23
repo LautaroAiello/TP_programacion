@@ -17,7 +17,7 @@
                 <input type="text" placeholder="Buscar productos...">  
 
                 <div class="navDetalles">
-                    <p>Favoritos</p>
+                    <p onclick="favoritos()">Favoritos</p>
 
                     <select name="categorias" id="categorias">
                         <option value="">Productos</option>
@@ -47,19 +47,19 @@
                 <img src="../img/cross.png" alt="exit" id="exit" class="exit" onclick="exitRe()">
                 <h2>Registrate</h2>
                 <form id="formularioRegistro" method="post">
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
 
-                    <input type="text" name="apellido" id="apellido" placeholder="Apellido">
+                    <input type="text" name="apellido" id="apellido" placeholder="Apellido" required>
 
-                    <input type="text" name="direccion" id="direccion" placeholder="Direccion">
+                    <input type="text" name="direccion" id="direccion" placeholder="Direccion" required>
 
-                    <input type="number" name="telefono" id="telefono" placeholder="Telefono">
+                    <input type="number" name="telefono" id="telefono" placeholder="Telefono" required>
 
-                    <input type="email" id="emailRegistro" name="email" placeholder="E-Mail">
+                    <input type="email" id="emailRegistro" name="email" placeholder="E-Mail" required>
 
-                    <input type="password" id="contraseñaRegistro"  name="contraseña" placeholder="Contraseña">
+                    <input type="password" id="contraseñaRegistro"  name="contraseña" placeholder="Contraseña" required>
 
-                    <button type="submit">Registrarse</button>
+                    <button type="submit" class="btnRegistro">Registrarse</button>
                 </form>
             </div>
             <section class="presentacion">
@@ -70,44 +70,44 @@
                 <div class="card" id="card">
                     <img src="../img/remera1.jpg" alt="remera1">
                     <div class="descripcionCard">
-                        <p>Remeras</p>
-                        <p>Favoritos</p>
+                        <p>Remera negra oversize</p>
+                        <small>Agregar a favoritos</small>
                     </div>
                     <p>$12000</p>
                     <button class="btnAgregarCarrito">Agregar al carrito</button>
                 </div>
                 <div class="card" id="card">
                     <img src="../img/remera1.jpg" alt="remera1">
-                    <div class="descripcionCard">
-                        <p>Remeras</p>
-                        <p>Favoritos</p>
+                     <div class="descripcionCard">
+                        <p>Remera negra oversize</p>
+                        <small>Agregar a favoritos</small>
                     </div>
                     <p>$12000</p>
                     <button class="btnAgregarCarrito">Agregar al carrito</button>
                 </div>
                 <div class="card" id="card">
                     <img src="../img/remera1.jpg" alt="remera1">
-                    <div class="descripcionCard">
-                        <p>Remeras</p>
-                        <p>Favoritos</p>
+                     <div class="descripcionCard">
+                        <p>Remera negra oversize</p>
+                        <small>Agregar a favoritos</small>
                     </div>
                     <p>$12000</p>
                     <button class="btnAgregarCarrito">Agregar al carrito</button>
                 </div>
                 <div class="card" id="card">
                     <img src="../img/remera1.jpg" alt="remera1">
-                    <div class="descripcionCard">
-                        <p>Remeras</p>
-                        <p>Favoritos</p>
+                     <div class="descripcionCard">
+                        <p>Remera negra oversize</p>
+                        <small>Agregar a favoritos</small>
                     </div>
                     <p>$12000</p>
                     <button class="btnAgregarCarrito">Agregar al carrito</button>
                 </div>
                 <div class="card" id="card">
                     <img src="../img/remera1.jpg" alt="remera1">
-                    <div class="descripcionCard">
-                        <p>Remeras</p>
-                        <p>Favoritos</p>
+                     <div class="descripcionCard">
+                        <p>Remera negra oversize</p>
+                        <small>Agregar a favoritos</small>
                     </div>
                     <p>$12000</p>
                     <button class="btnAgregarCarrito">Agregar al carrito</button>

@@ -83,7 +83,18 @@ p,h1,h2,button,select,input {
     font-weight: 900;
     font-style: normal;
 }
-
+#formularioRegistro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.btnRegistro{
+    border-radius: 6px;
+    padding: 8px;
+    cursor: pointer;
+    margin-top: 5px;
+}
 .grid{
     display: grid;
     grid-template-rows: auto 1fr auto;
@@ -185,6 +196,7 @@ p,h1,h2,button,select,input {
 }
 #registrarse:hover{
     color: rgb(102, 102, 101);
+    text-decoration: underline;
 }
 .carruselFotos{
     display: grid;
@@ -195,10 +207,10 @@ p,h1,h2,button,select,input {
     max-width: 90%;
     margin: 0 auto;
     margin-top: 30px;
+    margin-bottom: 80px;
 }
 
 .card{
-    border: 2px solid;
     border-radius: 7px;
     width: 100%;
     display: flex;
@@ -217,18 +229,33 @@ p,h1,h2,button,select,input {
     padding: 5px;
 }
 .descripcionCard{
+    text-align: center;
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: space-between;
     padding: 3px;
+}
+
+.descripcionCard small:hover{
+    text-decoration: underline;
+    color: #474747;
 }
 
 .btnAgregarCarrito{
     padding: 10px;
     border-radius: 6px;
-    background-color: rgb(255, 172, 17);
-    border: none;
+    border: 1px solid black;
     cursor: pointer;
+    margin-top: 5px;
+    background-color: black;
+    color: white;
+}
+
+.tituloFavoritos{
+    text-align: center;
+    font-weight: 800;
+    font-size: 50px;
 }
 
 .footer{
@@ -239,7 +266,6 @@ p,h1,h2,button,select,input {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 1%;
     padding: 1%;
 }
 .footer p{
@@ -252,11 +278,15 @@ p,h1,h2,button,select,input {
 
 /* MODO OSCURO */
 
+body.modo-oscuro{
+    background-color: #101010;
+}
 body.modo-oscuro header{
     background-color: #101010;
 }
 
 body.modo-oscuro .nav{
+    
     box-shadow: 0px 0px 10px 5px rgb(103, 103, 103);
     border: none;
 }
@@ -322,11 +352,62 @@ body.modo-oscuro .card p{
 body.modo-oscuro .descripcionCard{
     background-color: #2d2d2d;
 }
+body.modo-oscuro .descripcionCard small{
+    background-color: #2d2d2d;
+    color: white;
+}
 body.modo-oscuro .btnAgregarCarrito{
     background-color: #0c0c0c;
     color: white;
 }
 body.modo-oscuro .stock small{
     background-color: #0c0c0c;
+    color: white;
+}
+/* body.modo-oscuro .container,
+body.modo-oscuro .contenido,
+body.modo-oscuro section {
+  background-color: #101010;
+} */
+body.modo-oscuro .datosUsuario{
+    background-color: #101010;
+    color: white;
+}
+body.modo-oscuro .datosUsuario h1,body.modo-oscuro .datosUsuario button,body.modo-oscuro .datosUsuario div,body.modo-oscuro .datosUsuario img{
+    background-color: #101010;
+}
+body.modo-oscuro .datosUsuario img{
+    box-shadow: 0px 0px 8px 4px white;
+    border-radius: 30px;
+    padding: 5px;
+}
+body.modo-oscuro .datosUsuario button{
+    color: white;
+}
+body.modo-oscuro .carritoItems div{
+    border: 1px solid white;
+    background-color: #2d2d2d;
+}
+body.modo-oscuro .carritoItems img{
+    background-color: #2d2d2d;
+    border: none;
+}
+body.modo-oscuro .carritoItems{
+    background-color: #101010;
+}
+body.modo-oscuro .carritoItems p{
+    background-color: #2d2d2d;
+    color: white;
+}
+body.modo-oscuro .carritoItems section{
+    background-color: #2d2d2d;
+    color: white;
+}
+body.modo-oscuro .totalPagar{
+    background-color: #101010;
+    color: white;
+}
+body.modo-oscuro .totalPagar p,body.modo-oscuro .totalPagar button,body.modo-oscuro .totalPagar section{
+    background-color: #101010;
     color: white;
 }

@@ -18,7 +18,7 @@
                     <input type="text" placeholder="Buscar productos...">  
 
                     <div class="navDetalles">
-                        <p>Favoritos</p>
+                        <p onclick="favoritos()">Favoritos</p>
 
                         <select name="categorias" id="categorias">
                             <option value="">Productos</option>
@@ -47,12 +47,21 @@
                 <div class="registro" id="registro">
                     <img src="../img/cross.png" alt="exit" id="exit" class="exit" onclick="exitRe()">
                     <h2>Registrate</h2>
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre">
-                    <input type="text" name="apellido" id="apellido" placeholder="Apellido">
-                    <input type="text" name="direccion" id="direccion" placeholder="Direccion">
-                    <input type="number" name="telefono" id="telefono" placeholder="Telefono">
-                    <input type="text" name="email" id="email" placeholder="E-Mail">
-                    <input type="text" name="contraseña" id="contraseña" placeholder="Contraseña">
+                    <form id="formularioRegistro" method="post">
+                        <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
+
+                        <input type="text" name="apellido" id="apellido" placeholder="Apellido" required>
+
+                        <input type="text" name="direccion" id="direccion" placeholder="Direccion" required>
+
+                        <input type="number" name="telefono" id="telefono" placeholder="Telefono" required>
+
+                        <input type="email" id="emailRegistro" name="email" placeholder="E-Mail" required>
+
+                        <input type="password" id="contraseñaRegistro"  name="contraseña" placeholder="Contraseña" required>
+
+                    <button type="submit">Registrarse</button>
+                </form>
                 </div>
 
                 <div class="carritoItems">
@@ -61,22 +70,22 @@
                         <p>Remera</p>
                         <p>$12.000</p>
                         <section id="cantidadCarrito">
-                            <img src="../img/left-arrow.png" alt="decrease">
+                            <img src="../img/left-arrow.png" alt="decrease" class="imgStockCarrito">
                             <p>1</p>
-                            <img src="../img/right-arrow.png" alt="increase">
+                            <img src="../img/right-arrow.png" alt="increase" class="imgStockCarrito">
                         </section>
-                        <img src="../img/trash-can.png" alt="eliminar">
+                        <img src="../img/trash-can.png" alt="eliminar" class="eliminar">
                     </div>
                     <div>
                         <img src="../img/remera1.jpg" alt="remera" class="imgCarritoPrenda">
                         <p>Remera</p>
                         <p>$12.000</p>
                         <section id="cantidadCarrito">
-                            <img src="../img/left-arrow.png" alt="decrease">
+                            <img src="../img/left-arrow.png" alt="decrease" class="imgStockCarrito">
                             <p>1</p>
-                            <img src="../img/right-arrow.png" alt="increase">
+                            <img src="../img/right-arrow.png" alt="increase" class="imgStockCarrito">
                         </section>
-                        <img src="../img/trash-can.png" alt="eliminar">
+                        <img src="../img/trash-can.png" alt="eliminar" class="eliminar">
                     </div>
                 </div>
                 <section class="totalPagar">

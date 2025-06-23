@@ -38,10 +38,12 @@
 
 .agregarCarrito{
     position: absolute;
-    bottom: 18%;
+    bottom: 5%;
     padding: 15px;
     border-radius: 9px;
-    background-color: #fa8c16;
+    background-color: black;
+    border: 1px solid black;
+    color: white;
     cursor: pointer;
     font-weight: 600;
     box-shadow: 0px 0px 5px 0px;
@@ -50,7 +52,7 @@
 
 .stock{
     position: absolute;
-    bottom: 27%;
+    bottom: 15%;
     display: flex;
     margin-left: 10px;
     align-items: center;
@@ -65,7 +67,7 @@
 .talles{
     display: flex;
     position: absolute;
-    bottom: 34%;
+    bottom: 25%;
     margin-left: 9px;
     align-items: center;
 }
@@ -81,7 +83,7 @@
 
 .colores{
     position: absolute;
-    bottom: 43%;
+    bottom: 35%;
     display: flex;
     align-items: center;
     margin-left: 10px;
