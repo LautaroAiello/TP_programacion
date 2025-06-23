@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/index.css">
-    <link rel="stylesheet" href="../styles/producto.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Edu+NSW+ACT+Hand+Pre:wght@400..700&family=Michroma&display=swap" rel="stylesheet">
-    <title>Producto</title>
+    <title>Favoritos</title>
 </head>
 <body>
     <div class="grid">
@@ -18,7 +17,7 @@
                     <input type="text" placeholder="Buscar productos...">  
 
                     <div class="navDetalles">
-                        <p onclick="favoritos()">Favoritos</p>
+                        <p>Favoritos</p>
 
                         <select name="categorias" id="categorias">
                             <option value="">Productos</option>
@@ -29,7 +28,7 @@
                         </select>
                         <p class="nombrePagina"><a href="../vistas/index.html">Lana & Lino</a></p>
                         <img src="../img/profile-user.png" alt="perfilUsuario" class="perfilUsuario" onclick="perfilUsuario()">
-                        <img src="../img/cart.png" alt="carrito" class="carrito" onclick="carrito()">
+                        <img src="../img/cart.png" alt="carrito" class="carrito">
                         <p onclick="login()">Iniciar sesion</p>
                         <img src="../img/dark-mode.png" alt="modoOscuro" class="modoOscuro" onclick="darkMode()">
                     </div>
@@ -60,60 +59,58 @@
 
                         <input type="password" id="contraseñaRegistro"  name="contraseña" placeholder="Contraseña" required>
 
-                    <button type="submit">Registrarse</button>
-                </form>
+                        <button type="submit">Registrarse</button>
+                    </form>
                 </div>
-
-                <div class="gridProducto">
-                    <div>
-                        <img src="../img/remera1.jpg" alt="remera" class="imgPrimerVista">
+                <h1 class="tituloFavoritos">Los estilos que mas te gustan</h1>
+                <section class="carruselFotos">
+                    <div class="card" id="card">
+                        <img src="../img/remera1.jpg" alt="remera1">
+                        <div class="descripcionCard">
+                            <p>Remera negra oversize</p>
+                            <small>Eliminar de favoritos</small>
+                        </div>
+                        <p>$12000</p>
+                        <button class="btnAgregarCarrito">Agregar al carrito</button>
                     </div>
-                    <div class="datosProducto">
-                        <h2 class="nombreProducto">Remera modelo 1</h2>
-                        <div class="precio">
-                            <p>$30.000</p>
-                            <span>Cuotas:</span>
-                            <select name="cuota" id="cuota">
-                                <option value="1">1</option>
-                                <option value="1">3</option>
-                                <option value="1">6</option>
-                                <option value="1">9</option>
-                                <option value="1">12</option>
-                            </select>
+                    <div class="card" id="card">
+                        <img src="../img/remera1.jpg" alt="remera1">
+                        <div class="descripcionCard">
+                            <p>Remera negra oversize</p>
+                            <small>Eliminar de favoritos</small>
                         </div>
-                        <span class="descripcion">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab harum eveniet labore, nemo molestiae assumenda soluta repellendus beatae totam iste tempore vel id ipsum quaerat vitae voluptate sunt aperiam sapiente.</span>
-                        
-                        <div class="colores">
-                            <span>Color:</span>
-                            <p>Negro</p>
-                            <p>Blanco</p>
-                            <p>Rojo</p>
-                        </div>
-                        
-                        <div class="talles">
-                            <span>Talles: </span>
-                            <p>S</p>
-                            <p>M</p>
-                            <p>L</p>
-                            <p>XL</p>
-                        </div>
-                        
-                        <div class="stock">
-                            <span>Cantidad: </span>
-                            <select name="stock" id="stock" >
-                                <option value="">1 unidad</option>
-                                <option value="">2 unidades</option>
-                                <option value="">3 unidades</option>
-                                <option value="">4 unidades</option>
-                                <option value="">5 unidades</option>
-                                <option value="">6 unidades</option>
-                            </select>
-                            <small>(+50 unidades)</small>
-                        </div>
-                        
-                        <button class="agregarCarrito">Agregar al carrito</button>
+                        <p>$12000</p>
+                        <button class="btnAgregarCarrito">Agregar al carrito</button>
                     </div>
-                </div>
+                    <div class="card" id="card">
+                        <img src="../img/remera1.jpg" alt="remera1">
+                        <div class="descripcionCard">
+                            <p>Remera negra oversize</p>
+                            <small>Eliminar de favoritos</small>
+                        </div>
+                        <p>$12000</p>
+                        <button class="btnAgregarCarrito">Agregar al carrito</button>
+                    </div>
+                    <div class="card" id="card">
+                        <img src="../img/remera1.jpg" alt="remera1">
+                        <div class="descripcionCard">
+                            <p>Remera negra oversize</p>
+                            <small>Eliminar de favoritos</small>
+                        </div>
+                        <p>$12000</p>
+                        <button class="btnAgregarCarrito">Agregar al carrito</button>
+                    </div>
+                    <div class="card" id="card">
+                        <img src="../img/remera1.jpg" alt="remera1">
+                        <div class="descripcionCard">
+                            <p>Remera negra oversize</p>
+                            <small>Eliminar de favoritos</small>
+                        </div>
+                        <p>$12000</p>
+                        <button class="btnAgregarCarrito">Agregar al carrito</button>
+                    </div>
+                    
+            </section>
 
 
         </main>

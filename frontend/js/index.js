@@ -24,12 +24,12 @@ card.forEach(c => {
 function darkMode() {
   document.body.classList.toggle("modo-oscuro");
 
-  // Guardar en localStorage
+
   const esOscuro = document.body.classList.contains("modo-oscuro");
   localStorage.setItem("tema", esOscuro ? "oscuro" : "claro");
 }
 
-// Cargar preferencia al iniciar
+
 window.onload = () => {
   if (localStorage.getItem("tema") === "oscuro") {
     document.body.classList.add("modo-oscuro");
@@ -56,4 +56,7 @@ function vistaPassword(){
 }
 function carrito(){
   window.location.href = "carrito.html";
+}
+function favoritos(){
+  window.location.href = 'favoritos.html'
 }
