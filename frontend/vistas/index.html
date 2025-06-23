@@ -38,8 +38,11 @@
             <div class="login" id="login">
                 <img src="../img/cross.png" alt="exit" id="exit" class="exit" onclick="exit()">
                 <h2>Iniciar sesion</h2>
-                <input type="text" name="email" id="email" placeholder="E-Mail">
-                <input type="password" name="contraseña" id="contraseña" placeholder="Contraseña">
+                <form id="formularioInicioSesion" method="post">
+                    <input type="text" name="email" id="emailInicioSesion" placeholder="E-Mail">
+                    <input type="password" name="contraseña" id="contraseñaInicioSesion" placeholder="Contraseña">
+                    <button type="submit">Iniciar Sesion</button>
+                </form>
                 <p>¿No tenes cuenta?</p>
                 <p id="registrarse" onclick="registro()">Registrate</p>
             </div>
@@ -126,5 +129,6 @@
     </div>
 <script src="../js/registroUsuarios.js"></script>
 <script src="../js/index.js"></script>
+<script src="../js/inicioSesion.js"></script>
 </body>
 </html>

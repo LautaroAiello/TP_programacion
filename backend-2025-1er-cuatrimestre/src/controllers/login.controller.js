@@ -16,6 +16,7 @@ const login = async (req, res) => {
             exp: Date.now() + 60 * 30000
         }, secret);
         console.log(token)
+        console.log(respuesta)
         if(respuesta.length > 0){
             console.log("se encontro el usuario")
             res.json({codigo: 200, mensaje: "OK", payload: respuesta, jwt: token});
