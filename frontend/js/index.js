@@ -54,9 +54,43 @@ function vistaPassword(){
       input.type = "password";
   }
 }
+
 function carrito(){
   window.location.href = "carrito.html";
 }
+
 function favoritos(){
   window.location.href = 'favoritos.html'
 }
+
+const textoSesiones = document.getElementById("textoSesiones");
+const divLogin = document.getElementById("login");
+
+textoCerrarSesion = () =>{
+    let token = localStorage.getItem('authToken');
+    if(token){
+      textoSesiones.innerText = "Cerrar sesión";
+      divLogin.innerHTML = `
+                  <form id="formularioCierreSesion">
+                    <p>¿Estas seguro que quieres cerrar sesión?</p>
+                    <button type="button" class="btnRegistro" id="cierreSesionSi">Si</button>
+                    <button type="button" class="btnRegistro" id="cierreSesionNo">No</button>
+                  </form>`
+      const formularioCierreSesion = document.getElementById("formularioCierreSesion");
+      const cerrarSesionNo = document.getElementById("cierreSesionNo");
+      const cerrarSesionSi = document.getElementById("cierreSesionSi");
+      cerrarSesionSi.addEventListener('click',()=>{
+        localStorage.removeItem('authToken');
+        textoCerrarSesion();
+        divLogin.style.display = "none";
+      })
+      cerrarSesionNo.addEventListener('click',()=>{
+        divLogin.style.display = "none";
+      })
+    }else{
+      textoSesiones.innerText = "Iniciar sesión";
+    }
+}
+document.addEventListener('DOMContentLoaded', () => {
+  textoCerrarSesion();
+});

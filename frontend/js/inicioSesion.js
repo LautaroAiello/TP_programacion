@@ -1,4 +1,6 @@
 const formularioInicio = document.getElementById("formularioInicioSesion");
+const loginDiv = document.getElementById("login");
+//const textoSesiones = document.getElementById("textoSesiones");
 
 formularioInicio.addEventListener('submit',async(e)=>{
     e.preventDefault();
@@ -15,9 +17,30 @@ formularioInicio.addEventListener('submit',async(e)=>{
         .then(response=> response.json())
         .then(data=>{
             console.log(data);
+            loginDiv.style.display = "none";
+            alert("Inicio de sesion exitoso!");//HACER UN INNER HTML CON UN CUADRO MAS LINDO DE NOTIFICAICION DE INICIO DE SESION EXITOSA.
+            //inicioSesionExitosa(data.payload[0].nombre);
+            guardarInicioLocalStorage(data.jwt);
+            window.location.reload();
         })
     } catch (error) {
         console.error(error);
         alert('Error de logeo.');
     }
 })
+
+inicioSesionExitosa = (nombre) =>{
+
+}
+
+guardarInicioLocalStorage = (token) =>{
+    localStorage.setItem('authToken', token);
+}
+
+eliminarTokenLocalStorage = () =>{
+    localStorage.removeItem('authToken');
+}
+
+cambioTextoCerrarSesion = () =>{
+    
+}

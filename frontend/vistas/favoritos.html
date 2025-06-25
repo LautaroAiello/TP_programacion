@@ -29,7 +29,7 @@
                         <p class="nombrePagina"><a href="../vistas/index.html">Lana & Lino</a></p>
                         <img src="../img/profile-user.png" alt="perfilUsuario" class="perfilUsuario" onclick="perfilUsuario()">
                         <img src="../img/cart.png" alt="carrito" class="carrito">
-                        <p onclick="login()">Iniciar sesion</p>
+                        <p onclick="login()" id="textoSesiones" class="navLogin">Iniciar sesion</p>
                         <img src="../img/dark-mode.png" alt="modoOscuro" class="modoOscuro" onclick="darkMode()">
                     </div>
                 </nav>
@@ -38,8 +38,11 @@
                 <div class="login" id="login">
                     <img src="../img/cross.png" alt="exit" id="exit" class="exit" onclick="exit()">
                     <h2>Iniciar sesion</h2>
-                    <input type="text" name="email" id="email" placeholder="E-Mail">
-                    <input type="password" name="contraseña" id="contraseña" placeholder="Contraseña">
+                    <form id="formularioInicioSesion" method="post">
+                        <input type="text" name="email" id="emailInicioSesion" placeholder="E-Mail">
+                        <input type="password" name="contraseña" id="contraseñaInicioSesion" placeholder="Contraseña">
+                        <button type="submit" class="btnRegistro">Iniciar Sesion</button>
+                    </form>
                     <p>¿No tenes cuenta?</p>
                     <p id="registrarse" onclick="registro()">Registrate</p>
                 </div>
