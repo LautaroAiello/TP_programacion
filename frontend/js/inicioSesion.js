@@ -18,14 +18,16 @@ formularioInicio.addEventListener('submit',async(e)=>{
         .then(data=>{
             if(data.payload.length != 0){
                 console.log(data);
-                loginDiv.style.display = "none";
-                alert("Inicio de sesion exitoso!");//HACER UN INNER HTML CON UN CUADRO MAS LINDO DE NOTIFICAICION DE INICIO DE SESION EXITOSA.
-                //inicioSesionExitosa(data.payload[0].nombre);
+                inicioSesionExitosa(data.payload[0].nombre);
                 guardarInicioLocalStorage("authToken",data.jwt);
                 guardarInicioLocalStorage("id",data.payload[0].id_usuario)
-                window.location.reload();
+                setTimeout(()=>{
+                    window.location.reload();
+                },1000)
             }else{
-                alert("Contraseña o email incorrecta");
+                let mensajeError = document.getElementById("mensajeError");
+                mensajeError.style.display = "block";
+                mensajeError.innerText = "Email o contraseña incorrectos."
             }
         })
     } catch (error) {
@@ -35,7 +37,11 @@ formularioInicio.addEventListener('submit',async(e)=>{
 })
 
 inicioSesionExitosa = (nombre) =>{
-
+    loginDiv.style.padding = "80px";
+    loginDiv.style.width = "300px";
+    loginDiv.style.left = "38%";
+    loginDiv.innerHTML = `  <h2 class="loginExitoso">Inicio de sesion exitoso</h2>
+                            <p class="logBienvenida">Bienvenido ${nombre}!</p>`
 }
 
 guardarInicioLocalStorage = (nombreToken,token) =>{

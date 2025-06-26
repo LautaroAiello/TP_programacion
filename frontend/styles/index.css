@@ -93,7 +93,7 @@ p,h1,h2,button,select,input {
     border-radius: 6px;
     padding: 8px;
     cursor: pointer;
-    margin-top: 5px;
+    margin-top: 20px;
 }
 .grid{
     display: grid;
@@ -139,10 +139,11 @@ p,h1,h2,button,select,input {
 }
 
 .login{
+    border: 2px solid;
     position: fixed;
     border-radius: 6px;
     z-index: 1000;
-    left: 35%;
+    left: 40%;
     display: none;
     top: 35%;
     width: 250px;
@@ -168,14 +169,37 @@ p,h1,h2,button,select,input {
     top: 2%;
 }
 
+.loginExitoso{
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.logBienvenida{
+    font-size: 23px;
+}
+
+.mensajeError{
+    display: none;
+    color: red;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+#formularioInicioSesion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .registro{
+    border: 2px solid;
     position: fixed;
     border-radius: 6px;
     z-index: 1000;
-    left: 35%;
+    left: 32%;
     display: none;
     top: 30%;
-    width: 250px;
+    width: 550px;
     flex-direction: column;
     align-items: center;
     padding: 55px;
@@ -191,12 +215,38 @@ p,h1,h2,button,select,input {
     width: 100%;
 }
 
+.mensajeRegistroExitoso{
+    color: rgb(8, 176, 8);
+    font-size: 15px;
+    display: none;
+    margin-top: 10px;
+}
+
+.registroErrores{
+    display: none;
+    color: red;
+    font-size: 12px;
+}
+.erroresForm{
+    display: none;
+}
+.posicionesRegistro{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    width: 100%;
+}
+
 #registrarse{
     cursor: pointer;
 }
 #registrarse:hover{
     color: rgb(102, 102, 101);
     text-decoration: underline;
+}
+
+.formularioCierreSesion{
+    text-align: center;
 }
 .carruselFotos{
     display: grid;

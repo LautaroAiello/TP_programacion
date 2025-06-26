@@ -43,26 +43,40 @@
                     <input type="password" name="contraseña" id="contraseñaInicioSesion" placeholder="Contraseña">
                     <button type="submit" class="btnRegistro">Iniciar Sesion</button>
                 </form>
-                <p>¿No tenes cuenta?</p>
+                <p style="margin-top: 15px;">¿No tenes cuenta?</p>
                 <p id="registrarse" onclick="registro()">Registrate</p>
+                <p id="mensajeError" class="mensajeError"></p>
             </div>
             <div class="registro" id="registro">
                 <img src="../img/cross.png" alt="exit" id="exit" class="exit" onclick="exitRe()">
                 <h2>Registrate</h2>
                 <form id="formularioRegistro" method="post">
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
-
-                    <input type="text" name="apellido" id="apellido" placeholder="Apellido" required>
-
-                    <input type="text" name="direccion" id="direccion" placeholder="Direccion" required>
-
-                    <input type="number" name="telefono" id="telefono" placeholder="Telefono" required>
-
-                    <input type="email" id="emailRegistro" name="email" placeholder="E-Mail" required>
-
-                    <input type="password" id="contraseñaRegistro"  name="contraseña" placeholder="Contraseña" required>
-
+                    <div class="posicionesRegistro">
+                        <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
+                        <input type="text" name="apellido" id="apellido" placeholder="Apellido" required>
+                    </div>
+                    
+                    <div class="posicionesRegistro">
+                        <input type="text" name="direccion" id="direccion" placeholder="Direccion" required>
+                        <input type="number" name="telefono" id="telefono" placeholder="Telefono" required>
+                    </div>
+                    
+                    <div class="posicionesRegistro">
+                        <input type="email" id="emailRegistro" name="email" placeholder="E-Mail" required>
+                        <input type="email" id="emailRegistroRepetir" name="email" placeholder="Repetir e-mail" required>
+                    </div>  
+                    <div id="emailError" class="erroresForm">
+                        <p id="emailVerificacion"  class="registroErrores"></p>
+                    </div>
+                    <div class="posicionesRegistro">
+                        <input type="password" id="contraseñaRegistro"  name="contraseña" placeholder="Contraseña" required>
+                        <input type="password" id="contraseñaRegistroRepetir"  name="contraseña" placeholder="Repetir contraseña" required>
+                    </div>
+                    <div id="passwordError" class="erroresForm">
+                        <p id="passwordVerificacion"  class="registroErrores"></p>
+                    </div>
                     <button type="submit" class="btnRegistro">Registrarse</button>
+                    <p id="mensajeRegistroExitoso" class="mensajeRegistroExitoso"></p>
                 </form>
             </div>
             <section class="presentacion">

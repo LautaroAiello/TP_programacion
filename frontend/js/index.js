@@ -5,6 +5,7 @@ function login(){
 }
 function exit(){
     document.getElementById("login").style.display = "none";
+    document.getElementById("mensajeError").style.display = "none";
 }
 function registro(){
     document.getElementById("login").style.display = "none";
