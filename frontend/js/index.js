@@ -99,7 +99,7 @@ textoCerrarSesion = () =>{
         textoCerrarSesion();
         divLogin.style.display = "none";
         textoSesiones.innerText = "Iniciar sesión";
-        window.location.reload();
+        window.location.href = "index.html";
       })
       cerrarSesionNo.addEventListener('click',()=>{
         divLogin.style.display = "none";
