@@ -68,24 +68,28 @@
             </div>
             <div class="datosUsuario">
                 <h1>Perfil Usuario</h1>
-                    <input type="text" name="nombre" class="dataUsuario" placeholder="Lautaro" disabled>
+                <form id="modificarForm" method="post">
+                    <input type="text" name="nombre" class="dataUsuario" id="nombreUsuario" disabled>
 
-                    <input type="text" name="apellido" class="dataUsuario" placeholder="Aiello" disabled>
+                    <input type="text" name="apellido" class="dataUsuario" id="apellidoUsuario" disabled>
 
-                    <input type="text" name="direccion" class="dataUsuario" placeholder="Sarmiento 5326" disabled>
+                    <input type="text" name="direccion" class="dataUsuario" id="direccionUsuario" disabled>
 
-                    <input type="number" name="telefono" class="dataUsuario" placeholder="3425665819" disabled>
+                    <input type="number" name="telefono" class="dataUsuario" id="telefonoUsuario" disabled>
 
-                    <input type="text" name="email" class="dataUsuario" placeholder="lautaroaiello@gmail.com" disabled>
+                    <input type="text" name="email" class="dataUsuario" id="emailUsuario" disabled>
                     <div class="inputsData">
-                        <input type="password" name="contraseña" class="dataUsuario" id="password" placeholder="*******" disabled>
+                        <input type="password" name="contraseña" class="dataUsuario" id="password" disabled>
                         <img src="../img/eye.png" alt="passwordVista" onclick="vistaPassword()">
                     </div>
 
                     <div class="btnDatosUsuario">
-                        <button onclick="modificarDatosUsuario()">Editar datos</button>
-                        <button>Guardar cambios</button>
+                        <button type="submit">Guardar cambios</button>
                     </div>
+                </form>
+                <div class="btnDatosUsuario">
+                    <button onclick="modificarDatosUsuario()">Editar datos</button>
+                </div>
             </div>
         </main>
         <footer class="footer">
@@ -100,5 +104,6 @@
     </div>
 
 <script src="../js/index.js"></script>
+<script src="../js/datosUsuarios.js"></script>
 </body>
 </html>

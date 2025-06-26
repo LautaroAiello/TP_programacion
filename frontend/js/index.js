@@ -1,3 +1,4 @@
+let token = localStorage.getItem('authToken');
 
 function login(){
     document.getElementById("login").style.display = "flex";
@@ -36,8 +37,12 @@ window.onload = () => {
   }
 }
 
-function perfilUsuario(){
-  window.location.href = 'datosUsuario.html';
+perfilUsuario= () =>{
+  if(token){
+    window.location.href = 'datosUsuario.html';
+  }else{
+    login();
+  }
 }
 
 function modificarDatosUsuario(){
@@ -56,18 +61,25 @@ function vistaPassword(){
 }
 
 function carrito(){
-  window.location.href = "carrito.html";
+  if(token){
+    window.location.href = "carrito.html";
+  }else{
+    login();
+  }
 }
 
 function favoritos(){
-  window.location.href = 'favoritos.html'
+  if(token){
+    window.location.href = 'favoritos.html'
+  }else{
+    login();
+  }
 }
 
 const textoSesiones = document.getElementById("textoSesiones");
 const divLogin = document.getElementById("login");
 
 textoCerrarSesion = () =>{
-    let token = localStorage.getItem('authToken');
     if(token){
       textoSesiones.innerText = "Cerrar sesión";
       divLogin.innerHTML = `
@@ -75,14 +87,18 @@ textoCerrarSesion = () =>{
                     <p>¿Estas seguro que quieres cerrar sesión?</p>
                     <button type="button" class="btnRegistro" id="cierreSesionSi">Si</button>
                     <button type="button" class="btnRegistro" id="cierreSesionNo">No</button>
-                  </form>`
+                  </form>
+                  `
       const formularioCierreSesion = document.getElementById("formularioCierreSesion");
       const cerrarSesionNo = document.getElementById("cierreSesionNo");
       const cerrarSesionSi = document.getElementById("cierreSesionSi");
       cerrarSesionSi.addEventListener('click',()=>{
         localStorage.removeItem('authToken');
+        localStorage.removeItem('id');
         textoCerrarSesion();
         divLogin.style.display = "none";
+        textoSesiones.innerText = "Iniciar sesión";
+        window.location.reload();
       })
       cerrarSesionNo.addEventListener('click',()=>{
         divLogin.style.display = "none";

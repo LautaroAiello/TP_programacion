@@ -16,12 +16,17 @@ formularioInicio.addEventListener('submit',async(e)=>{
         })
         .then(response=> response.json())
         .then(data=>{
-            console.log(data);
-            loginDiv.style.display = "none";
-            alert("Inicio de sesion exitoso!");//HACER UN INNER HTML CON UN CUADRO MAS LINDO DE NOTIFICAICION DE INICIO DE SESION EXITOSA.
-            //inicioSesionExitosa(data.payload[0].nombre);
-            guardarInicioLocalStorage(data.jwt);
-            window.location.reload();
+            if(data.payload.length != 0){
+                console.log(data);
+                loginDiv.style.display = "none";
+                alert("Inicio de sesion exitoso!");//HACER UN INNER HTML CON UN CUADRO MAS LINDO DE NOTIFICAICION DE INICIO DE SESION EXITOSA.
+                //inicioSesionExitosa(data.payload[0].nombre);
+                guardarInicioLocalStorage("authToken",data.jwt);
+                guardarInicioLocalStorage("id",data.payload[0].id_usuario)
+                window.location.reload();
+            }else{
+                alert("Contraseña o email incorrecta");
+            }
         })
     } catch (error) {
         console.error(error);
@@ -33,8 +38,8 @@ inicioSesionExitosa = (nombre) =>{
 
 }
 
-guardarInicioLocalStorage = (token) =>{
-    localStorage.setItem('authToken', token);
+guardarInicioLocalStorage = (nombreToken,token) =>{
+    localStorage.setItem(nombreToken, token);
 }
 
 eliminarTokenLocalStorage = () =>{
