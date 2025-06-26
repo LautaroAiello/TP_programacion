@@ -46,7 +46,7 @@ formularioInicio.addEventListener('submit',async(e)=>{
                 inicioSesionExitosa(data.payload[0].nombre);
                 setTimeout(()=>{
                    loginDiv.style.display = "none";
-                },1000)
+                },2000)
             }else{
                 let mensajeError = document.getElementById("mensajeError");
                 mensajeError.style.display = "block";

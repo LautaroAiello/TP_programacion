@@ -20,9 +20,7 @@ traerDatosUsuario = async () =>{
         .then(response=>response.json())
         .then(data=>{
             completarDatos(data)
-        })
-
-    } catch (error) {
+        })}catch(error) {
         console.error(error)
     }
 }
