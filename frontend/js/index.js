@@ -31,6 +31,10 @@ function darkMode() {
   localStorage.setItem("tema", esOscuro ? "oscuro" : "claro");
 }
 
+agregarProducto = () =>{
+  window.location.href = "admin.html";
+}
+
 
 window.onload = () => {
   if (localStorage.getItem("tema") === "oscuro") {

@@ -39,7 +39,6 @@ formularioInicio.addEventListener('submit',async(e)=>{
         .then(response=> response.json())
         .then(data=>{
             if(data.payload.length != 0){
-                console.log(data);
                 guardarInicioLocalStorage("authToken",data.jwt);
                 guardarInicioLocalStorage("id",data.payload[0].id_usuario)
                 window.location.reload();
@@ -47,6 +46,7 @@ formularioInicio.addEventListener('submit',async(e)=>{
                 setTimeout(()=>{
                    loginDiv.style.display = "none";
                 },2000)
+
             }else{
                 let mensajeError = document.getElementById("mensajeError");
                 mensajeError.style.display = "block";
@@ -58,6 +58,10 @@ formularioInicio.addEventListener('submit',async(e)=>{
         alert('Error de logeo.');
     }
 })
+
+vistaRol = () =>{
+
+}
 
 inicioSesionExitosa = (nombre) =>{
     loginDiv.style.padding = "80px";
