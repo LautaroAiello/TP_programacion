@@ -39,14 +39,7 @@ formularioInicio.addEventListener('submit',async(e)=>{
         .then(response=> response.json())
         .then(data=>{
             if(data.payload.length != 0){
-                guardarInicioLocalStorage("authToken",data.jwt);
-                guardarInicioLocalStorage("id",data.payload[0].id_usuario)
-                window.location.reload();
-                inicioSesionExitosa(data.payload[0].nombre);
-                setTimeout(()=>{
-                   loginDiv.style.display = "none";
-                },2000)
-
+                inicioSesion(data);
             }else{
                 let mensajeError = document.getElementById("mensajeError");
                 mensajeError.style.display = "block";
@@ -59,8 +52,15 @@ formularioInicio.addEventListener('submit',async(e)=>{
     }
 })
 
-vistaRol = () =>{
-
+inicioSesion = (data) =>{
+    guardarInicioLocalStorage("authToken",data.jwt);
+    guardarInicioLocalStorage("id",data.payload[0].id_usuario)
+    guardarInicioLocalStorage("rol",data.payload[0].rol)
+    window.location.href = "index.html";
+    inicioSesionExitosa(data.payload[0].nombre);
+    setTimeout(()=>{
+        loginDiv.style.display = "none";
+    },2000)
 }
 
 inicioSesionExitosa = (nombre) =>{

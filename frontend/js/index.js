@@ -1,4 +1,5 @@
 let token = localStorage.getItem('authToken');
+let rol = localStorage.getItem('rol');
 
 function login(){
     document.getElementById("login").style.display = "flex";
@@ -114,4 +115,20 @@ textoCerrarSesion = () =>{
 }
 document.addEventListener('DOMContentLoaded', () => {
   textoCerrarSesion();
+  if(rol === "Admin"){
+    mostrarBotonAgregarProducto();
+  }
 });
+
+mostrarBotonAgregarProducto = () =>{
+    const navbar = document.getElementById('navbar'); // o como tengas definida la navbar
+    const boton = document.createElement('p');
+    boton.href = 'producto.html';
+    boton.textContent = 'Agregar Producto';
+    boton.classList.add('agregarProducto'); // o clases que uses
+    navbar.appendChild(boton);
+    const favoritos = document.getElementById("favoritos");
+    const carrito = document.getElementById("carrito");
+    carrito.style.display = "none"
+    favoritos.style.display = "none"
+  }

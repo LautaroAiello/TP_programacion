@@ -12,13 +12,13 @@
 <body> 
     <div class="grid">
         <header>
-            <nav class="nav">
+            <nav class="nav" id="navbar">
                 <img class="imgBuscador" src="../img/buscador.png" alt="buscador">
                 <input type="text" placeholder="Buscar productos...">  
 
                 <div class="navDetalles">
-                    <p onclick="favoritos()">Favoritos</p>
-                    <p class="agregarProducto" onclick="agregarProducto()">Agregar Productos</p>
+                    <p onclick="favoritos()" id="favoritos">Favoritos</p>
+                    <!-- <p class="agregarProducto" onclick="agregarProducto()" id="agregarProducto">Agregar Productos</p> -->
                     <select name="categorias" id="categorias">
                         <option value="">Productos</option>
                         <option value="">Masculino</option>
@@ -28,7 +28,7 @@
                     </select>
                     <p class="nombrePagina">Lana & Lino</p>
                     <img src="../img/profile-user.png" alt="perfilUsuario" class="perfilUsuario" onclick="perfilUsuario()">
-                    <img src="../img/cart.png" alt="carrito" class="carrito" onclick="carrito()">
+                    <img src="../img/cart.png" id="carrito" alt="carrito" class="carrito" onclick="carrito()">
                     <p onclick="login()" class="navLogin" id="textoSesiones">Iniciar sesion</p>
                     <img src="../img/dark-mode.png" alt="modoOscuro" class="modoOscuro" onclick="darkMode()">
                 </div>
