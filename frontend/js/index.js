@@ -20,7 +20,15 @@ function exitRe(){
 const card = document.querySelectorAll(".card");
 card.forEach(c => {
     c.addEventListener("click", () => {
-        window.location.href = 'producto.html';
+      if(rol !== "Admin"){
+        if(token){
+          window.location.href = 'producto.html';
+        }else{
+          login();
+        }
+      }else{
+
+      }
     })
 });
 
@@ -74,6 +82,14 @@ function carrito(){
   }
 }
 
+// function verProducto(){
+//   if(token){
+//     window.location.href = "producto.html";
+//   }else{
+//     login();
+//   }
+// }
+
 function favoritos(){
   if(token){
     window.location.href = 'favoritos.html'
@@ -120,18 +136,30 @@ document.addEventListener('DOMContentLoaded', () => {
     mostrarBotonAgregarProducto();
   }
 });
+document.addEventListener('DOMContentLoaded', () => {
+  
+  if(rol === "User" || rol === null){
+    const boton = document.getElementById("agregarProducto");
+    boton.style.display = "none";
+  }
+});
 
 mostrarBotonAgregarProducto = () =>{
-    const navbar = document.getElementById('navbar');
-    const boton = document.createElement('p');
-    boton.textContent = 'Agregar Producto';
-    boton.classList.add('agregarProducto');
-    navbar.appendChild(boton);
+    const boton = document.getElementById("agregarProducto");
     boton.addEventListener('click',()=>{
       window.location.href = "admin.html"
     });
     const favoritos = document.getElementById("favoritos");
+    if(favoritos){
+      favoritos.style.display = "none";
+    }
     const carrito = document.getElementById("carrito");
-    carrito.style.display = "none";
-    favoritos.style.display = "none";
+    if(carrito){
+      carrito.style.display = "none";
+    }
   }
+
+
+function irAPagar(){
+  window.location.href = 'pantallaPago.html';
+}

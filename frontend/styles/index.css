@@ -51,6 +51,7 @@ p,h1,h2,button,select,input {
     border: none;
     background-color: #ffff;
     cursor: pointer;
+    font-size: 18px;
 }
 .imgBuscador{
     width: 2%;
@@ -98,7 +99,7 @@ p,h1,h2,button,select,input {
 .grid{
     display: grid;
     grid-template-rows: auto 1fr auto;
-    min-height: 115vh;
+    min-height: 100vh;
 }
 
 

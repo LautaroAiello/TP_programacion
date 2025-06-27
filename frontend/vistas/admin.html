@@ -18,7 +18,7 @@
                 <input type="text" placeholder="Buscar productos...">  
 
                 <div class="navDetalles">
-                    <!-- <p class="agregarProducto" onclick="agregarProducto()">Agregar Productos</p> -->
+                    <p class="agregarProducto" id="agregarProducto">Agregar Productos</p>
                     <select name="categorias" id="categorias">
                         <option value="">Productos</option>
                         <option value="">Masculino</option>
@@ -80,25 +80,51 @@
             </div> -->
             <div class="formAdmin">
                 <h1>Agregar producto</h1>
-                <form id="editarFormAdmin" method="post">
 
+                <form id="formCategoria" method="post">
+                    <h2>Crear categoria</h2>
+                    <input type="text" name="categoria" placeholder="Ingresar la categoria" class="dataUsuario" id="categoria">
+                    <button class="btnAdmin" type="submit">Crear categoria</button>
+                </form>
+
+                <form id="editarFormAdmin" method="post">
+                    <h2>Crear producto</h2>
                     <input type="text" name="nombre" placeholder="Ingresar nombre del producto" class="dataUsuario" id="nombre">
 
                     <input type="text" name="descripcion" placeholder="Ingresar descripcion del producto" class="dataUsuario" id="descripcion">
 
                     <input type="text" name="genero" placeholder="Ingresar genero del producto" class="dataUsuario" id="genero">
 
-                    <input type="text" name="color" placeholder="Ingresar color del producto" class="dataUsuario" id="color">
 
-                    <input type="text" name="categoria" placeholder="Ingresar categoria del producto" class="dataUsuario" id="categoria">
+                    <input type="text" name="categoria" placeholder="Ingresar ID de categoria" class="dataUsuario" id="categoria">
 
-                    <input type="text" name="talles" placeholder="Ingresar talles" class="dataUsuario" id="talles">
+                    
 
                     <input type="number" name="precio" placeholder="Ingresar precio" class="dataUsuario" id="precio">
 
-                    <input type="file" name="imagen" accept="image/*">
+                    <input type="file" name="imagen" accept="image/*" id="imagen" class="dataUsuario">
 
-                    <button class="btnAdmin" type="submit">Agregar producto</button>
+                    <button class="btnAdmin" type="submit">Cargar producto</button>
+                    
+                </form>
+                <form id="formInventario" method="post">
+                    <h2>Crear inventario</h2>
+
+                    <div class="talles">
+                        <label>Ingresar talles</label>
+                        <label><input type="radio" name="talles" class="checkTalles dataUsuario">S</label>
+                        <label><input type="radio" name="talles" class="checkTalles dataUsuario">M</label>
+                        <label><input type="radio" name="talles" class="checkTalles dataUsuario">L</label>
+                        <label><input type="radio" name="talles" class="checkTalles dataUsuario">XL</label>
+                    </div>
+
+                    <input type="text" name="color" placeholder="Ingresar color del producto" class="dataUsuario" id="color">
+
+                    <input type="number" name="stock" placeholder="Ingresar el stock" class="dataUsuario" id="color">
+
+                    <input type="number" name="idProducto" placeholder="Ingresar el idProducto" class="dataUsuario" id="idProducto">
+
+                    <button class="btnAdmin" type="submit">Cargar inventario</button>
                     
                 </form>
             </div>

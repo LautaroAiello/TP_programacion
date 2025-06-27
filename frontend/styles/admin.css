@@ -10,24 +10,28 @@
 }
 
 .formAdmin{
+    text-align: center;
+    border: 1px solid;
+    width: 43%;
+    box-shadow: 0px 0px 5px 2px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    border: 1px solid;
-    position: absolute;
-    left: 28%;
-    width: 43%;
+    margin: 0px auto 50px auto;
+    padding: 30px;
+    border: 1px solid #ccc;
     border-radius: 10px;
-    top: 15%;
-    box-shadow: 0px 0px 5px 2px;
 }
 
-#editarFormAdmin{
+#editarFormAdmin, #formCategoria, #formInventario{
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 95%;
+}
+
+.formAdmin h2{
+    font-size: 30px;
 }
 
 .formAdmin h1{
@@ -36,9 +40,30 @@
     margin-bottom: 25px;
 }
 .formAdmin input{
-    padding: 23px;
-    width: 60%;
-    margin: 12px;
-    box-shadow: 0px 0px 5px 2px;
+    padding: 10px;
+    width: 78%;
+    margin: 7px;
+    /* box-shadow: 0px 0px 5px 2px; */
     border-radius: 8px;
+}
+
+#imagen{
+    border: 1px solid;
+}
+
+.talles{
+        display: flex;
+}
+.talles input{
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+    accent-color: black;
+    box-shadow: none;
+}
+.talles label {
+    display: flex;
+    align-items: center;
+    margin: 8px 10px;
+    font-size: 19px;
 }

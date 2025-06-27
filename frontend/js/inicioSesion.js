@@ -56,10 +56,10 @@ inicioSesion = (data) =>{
     guardarInicioLocalStorage("authToken",data.jwt);
     guardarInicioLocalStorage("id",data.payload[0].id_usuario)
     guardarInicioLocalStorage("rol",data.payload[0].rol)
-    window.location.href = "index.html";
     inicioSesionExitosa(data.payload[0].nombre);
     setTimeout(()=>{
         loginDiv.style.display = "none";
+        window.location.href = "index.html";
     },2000)
 }
 

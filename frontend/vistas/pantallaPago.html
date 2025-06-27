@@ -3,9 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Edu+NSW+ACT+Hand+Pre:wght@400..700&family=Michroma&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/datosUsuario.css">
+    <link rel="stylesheet" href="../styles/pantallaPago.css">
     <title>Pagar</title>
 </head>
 <body>
-    
+     <div class="grid">
+        <header>
+            <nav class="nav" id="navbar">
+                <img class="imgBuscador" src="../img/buscador.png" alt="buscador">
+                <input type="text" placeholder="Buscar productos...">  
+
+                <div class="navDetalles">
+                    <p onclick="favoritos()">Favoritos</p>
+                    <!-- <p class="agregarProducto" onclick="agregarProducto()">Agregar Productos</p> -->
+                    <select name="categorias" id="categorias">
+                        <option value="">Productos</option>
+                        <option value="">Masculino</option>
+                        <option value="">Femenino</option>
+                        <option value="">Color</option>
+                        <option value="">Categoria</option>
+                    </select>
+                    <p class="nombrePagina"><a href="../vistas/index.html">Lana & Lino</a></p>
+                    <img src="../img/profile-user.png" alt="perfilUsuario" class="perfilUsuario" onclick="perfilUsuario()">
+                    <img src="../img/cart.png" alt="carrito" class="carrito" onclick="carrito()">
+                    <p onclick="login()" class="navLogin" id="textoSesiones">Iniciar sesion</p>
+                    <img src="../img/dark-mode.png" alt="modoOscuro" class="modoOscuro" onclick="darkMode()">
+                </div>
+            </nav>
+        </header>
+        <main class="main" id="main">
+            <div class="login" id="login">
+                <img src="../img/cross.png" alt="exit" id="exit" class="exit" onclick="exit()">
+                <h2>Iniciar sesion</h2>
+                <form id="formularioInicioSesion" method="post">
+                    <input type="text" name="email" id="emailInicioSesion" placeholder="E-Mail">
+                    <input type="password" name="contraseña" id="contraseñaInicioSesion" placeholder="Contraseña">
+                    <button type="submit" class="btnRegistro">Iniciar Sesion</button>
+                </form>
+                <p style="margin-top: 15px;">¿No tenes cuenta?</p>
+                <p id="registrarse" onclick="registro()">Registrate</p>
+                <p id="mensajeError" class="mensajeError"></p>
+            </div>
+            <div class="formPagar">
+                <h2>Resumen del pedido</h2>
+                <div id="listaProductos">
+                    <p>Remera negra x1 - $10.000</p>
+                    <p>Pantalón beige x2 - $10.000</p>
+                </div>
+                <p><strong>Total:</strong> $30.000</p>
+
+                <form id="pago" method="post">
+                    <select name="tipoPago" id="tipoPago">
+                        <option>Forma de pago</option>
+                        <option value="transferencia">Transferencia</option>
+                        <option value="debito">Débito</option>
+                        <option value="credito">Crédito</option>
+                    </select>
+
+                    <input type="text" name="numeroTarjeta" placeholder="Número de tarjeta" class="dataUsuario" id="numeroTarjeta">
+                    <input type="text" name="fechaVencimiento" placeholder="Fecha de vencimiento (MM/AA)" class="dataUsuario" id="fechaVencimiento">
+                    <input type="text" name="nombreTarjeta" placeholder="Nombre del titular" class="dataUsuario" id="nombreTarjeta">
+
+                    <div class="divBtnPago">
+                        <button type="submit" class="btnPagar" id="btnPagar" disabled>Pagar</button>
+                    </div>
+                    <h3 class="msjPagoExitoso" id="msjPagoExitoso">Pago realizado con exito!</h3>
+                </form>
+            </div>
+        </main>
+        <footer class="footer">
+            <div>
+                <img src="../img/instagram.png" alt="instagram">
+                <p>lana&lino@gmail.com</p>
+                <img src="../img/whatsapp.png" alt="whatsapp">
+                <p>342-5445165</p>
+                <p>Desarrolladores - Aiello Lautaro - Cacciabue Santiago</p>
+            </div>
+        </footer>
+    </div>
+
+<script src="../js/index.js"></script>
+<script src="../js/pantallaPago.js"></script>
 </body>
 </html>

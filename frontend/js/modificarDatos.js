@@ -16,7 +16,7 @@ form.addEventListener('submit',async(e)=>{
             method : 'POST',
             headers:{
                 'Content-type': 'application/json',
-                'authorization': `${token}`
+                'authorization': `${tokenAuth}`
             },
             body: JSON.stringify({nombre,apellido,direccion,email,telefono,rol,password})
         })

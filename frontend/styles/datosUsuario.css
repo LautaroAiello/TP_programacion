@@ -24,15 +24,18 @@
     margin-bottom: 25px;
 }
 .datosUsuario input{
-    padding: 23px;
-    width: 60%;
-    margin: 12px;
+    padding: 12px;
+    width: 72%;
+    margin: 7px;
     box-shadow: 0px 0px 5px 2px;
     border-radius: 8px;
 }
 .inputsData{
     width: 100%;
     margin-left: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .inputsData img{
     cursor: pointer;

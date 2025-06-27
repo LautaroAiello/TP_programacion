@@ -1,0 +1,86 @@
+.formPagar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #555;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    background-color: #ffffff;
+    padding: 30px;
+    width: 400px;
+    margin: 80px auto;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.formPagar h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #222;
+    background-color: #ffffff;
+}
+
+#listaProductos p,
+.formPagar p {
+    margin: 4px 0;
+    font-size: 15px;
+    color: #333;
+}
+
+#tipoPago {
+    padding: 12px;
+    width: 100%;
+    margin: 15px 0;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    font-size: 15px;
+    background-color: #ffffff;
+}
+#pago{
+    background-color: #ffffff;
+}
+.dataUsuario {
+    padding: 12px;
+    width: 100%;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    display: none;
+}
+
+.dataUsuario.mostrar {
+    display: block;
+    background-color: #ffffff;
+}
+
+.btnPagar {
+    padding: 12px 25px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.btnPagar:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+.btnPagar:hover:not(:disabled) {
+    background-color: #222;
+}
+
+.divBtnPago{
+    background-color: #ffffff;
+}
+.msjPagoExitoso{
+    margin-top: 25px;
+    display: none;
+    font-size: 22px;
+    color: rgb(44 219 28 / 99%);
+    background-color: #ffffff;
+}
