@@ -101,6 +101,7 @@ textoCerrarSesion = () =>{
       cerrarSesionSi.addEventListener('click',()=>{
         localStorage.removeItem('authToken');
         localStorage.removeItem('id');
+        localStorage.removeItem('rol');
         textoCerrarSesion();
         divLogin.style.display = "none";
         textoSesiones.innerText = "Iniciar sesión";
@@ -121,14 +122,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 mostrarBotonAgregarProducto = () =>{
-    const navbar = document.getElementById('navbar'); // o como tengas definida la navbar
+    const navbar = document.getElementById('navbar');
     const boton = document.createElement('p');
-    boton.href = 'producto.html';
     boton.textContent = 'Agregar Producto';
-    boton.classList.add('agregarProducto'); // o clases que uses
+    boton.classList.add('agregarProducto');
     navbar.appendChild(boton);
+    boton.addEventListener('click',()=>{
+      window.location.href = "admin.html"
+    });
     const favoritos = document.getElementById("favoritos");
     const carrito = document.getElementById("carrito");
-    carrito.style.display = "none"
-    favoritos.style.display = "none"
+    carrito.style.display = "none";
+    favoritos.style.display = "none";
   }

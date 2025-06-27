@@ -13,12 +13,12 @@
 <body>
     <div class="grid">
         <header>
-            <nav class="nav" id="nav">
+            <nav class="nav" id="navbar">
                 <img class="imgBuscador" src="../img/buscador.png" alt="buscador">
                 <input type="text" placeholder="Buscar productos...">  
 
                 <div class="navDetalles">
-                    <p class="agregarProducto" onclick="agregarProducto()">Agregar Productos</p>
+                    <!-- <p class="agregarProducto" onclick="agregarProducto()">Agregar Productos</p> -->
                     <select name="categorias" id="categorias">
                         <option value="">Productos</option>
                         <option value="">Masculino</option>
@@ -28,6 +28,7 @@
                     </select>
                     <p class="nombrePagina"><a href="../vistas/index.html">Lana & Lino</a></p>
                     <img src="../img/profile-user.png" alt="perfilUsuario" class="perfilUsuario" onclick="perfilUsuario()">
+                    <img src="../img/cart.png" id="carrito" alt="carrito" class="carrito" onclick="carrito()">
                     <p onclick="login()" class="navLogin" id="textoSesiones">Iniciar sesion</p>
                     <img src="../img/dark-mode.png" alt="modoOscuro" class="modoOscuro" onclick="darkMode()">
                 </div>
@@ -46,7 +47,7 @@
                 <p id="registrarse" onclick="registro()">Registrate</p>
                 <p id="mensajeError" class="mensajeError"></p>
             </div>
-            <div class="registro" id="registro">
+            <!-- <div class="registro" id="registro">
                 <img src="../img/cross.png" alt="exit" id="exit" class="exit" onclick="exitRe()">
                 <h2>Registrate</h2>
                 <form id="formularioRegistro" method="post">
@@ -76,7 +77,7 @@
                     </div>
                     <button type="submit" class="btnRegistro">Registrarse</button>
                 </form>
-            </div>
+            </div> -->
             <div class="formAdmin">
                 <h1>Agregar producto</h1>
                 <form id="editarFormAdmin" method="post">
