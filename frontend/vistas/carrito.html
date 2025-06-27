@@ -80,31 +80,31 @@
             </div>
 
                 <div class="carritoItems">
-                    <div>
+                    <div class="itemCarrito">
                         <img src="../img/remera1.jpg" alt="remera" class="imgCarritoPrenda">
                         <p>Remera</p>
-                        <p>$12.000</p>
+                        <p class="precioUnidad">12000</p>
                         <section id="cantidadCarrito">
-                            <img src="../img/left-arrow.png" alt="decrease" class="imgStockCarrito">
-                            <p>1</p>
-                            <img src="../img/right-arrow.png" alt="increase" class="imgStockCarrito">
+                            <img src="../img/left-arrow.png" class="imgStockCarrito disminuir">
+                            <p class="cantidad">1</p>
+                            <img src="../img/right-arrow.png" class="imgStockCarrito aumentar">
                         </section>
-                        <img src="../img/trash-can.png" alt="eliminar" class="eliminar">
+                        <img src="../img/trash-can.png" alt="eliminar" onclick="eliminarItem(event)" class="eliminar">
                     </div>
-                    <div>
+                    <div class="itemCarrito">
                         <img src="../img/remera1.jpg" alt="remera" class="imgCarritoPrenda">
                         <p>Remera</p>
-                        <p>$12.000</p>
+                        <p class="precioUnidad">12000</p>
                         <section id="cantidadCarrito">
-                            <img src="../img/left-arrow.png" alt="decrease" class="imgStockCarrito">
-                            <p>1</p>
-                            <img src="../img/right-arrow.png" alt="increase" class="imgStockCarrito">
+                            <img src="../img/left-arrow.png" class="imgStockCarrito disminuir">
+                            <p class="cantidad">1</p>
+                            <img src="../img/right-arrow.png" class="imgStockCarrito aumentar">
                         </section>
-                        <img src="../img/trash-can.png" alt="eliminar" class="eliminar">
+                        <img src="../img/trash-can.png" alt="eliminar" onclick="eliminarItem(event)" class="eliminar">
                     </div>
                 </div>
                 <section class="totalPagar">
-                    <p>Total: $$$$$</p>
+                    <p id="total"></p>
                     <button>Pagar</button>
                 </section>
 
@@ -121,5 +121,6 @@
         </footer>
     </div>    
     <script src="../js/index.js"></script>
+    <script src="../js/carrito.js"></script>
 </body>
 </html>

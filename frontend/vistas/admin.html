@@ -7,7 +7,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Edu+NSW+ACT+Hand+Pre:wght@400..700&family=Michroma&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/index.css">
-    <link rel="stylesheet" href="../styles/datosUsuario.css">
     <link rel="stylesheet" href="../styles/admin.css">
     <title>Gestionar productos</title>
 </head>
@@ -19,7 +18,6 @@
                 <input type="text" placeholder="Buscar productos...">  
 
                 <div class="navDetalles">
-                    <p onclick="favoritos()">Favoritos</p>
                     <p class="agregarProducto" onclick="agregarProducto()">Agregar Productos</p>
                     <select name="categorias" id="categorias">
                         <option value="">Productos</option>
@@ -30,7 +28,6 @@
                     </select>
                     <p class="nombrePagina"><a href="../vistas/index.html">Lana & Lino</a></p>
                     <img src="../img/profile-user.png" alt="perfilUsuario" class="perfilUsuario" onclick="perfilUsuario()">
-                    <img src="../img/cart.png" alt="carrito" class="carrito" onclick="carrito()">
                     <p onclick="login()" class="navLogin" id="textoSesiones">Iniciar sesion</p>
                     <img src="../img/dark-mode.png" alt="modoOscuro" class="modoOscuro" onclick="darkMode()">
                 </div>
@@ -80,9 +77,9 @@
                     <button type="submit" class="btnRegistro">Registrarse</button>
                 </form>
             </div>
-            <div class="datosUsuario">
+            <div class="formAdmin">
                 <h1>Agregar producto</h1>
-                <form id="modificarForm" method="post">
+                <form id="editarFormAdmin" method="post">
 
                     <input type="text" name="nombre" placeholder="Ingresar nombre del producto" class="dataUsuario" id="nombre">
 
