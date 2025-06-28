@@ -51,6 +51,7 @@ formularioCategoria.addEventListener("submit", async (e) =>{ // este formulario 
         cargarIDCategorias();
         setTimeout(()=> {
             document.getElementById("mensajeExitoCategoria").style.display = "none";
+            formularioCategoria.reset();
             // window.location.reload();
         },2000)
     } catch (error) {
@@ -74,7 +75,7 @@ async function cargarIDCategorias(){ //Esta función carga las categorías en el
         const objeto = await respuesta.json();
         const categorias = objeto.payload;
         const selectCategoria = document.getElementById("categoriaSelect");
-        selectCategoria.innerHTML = ""
+        selectCategoria.innerHTML = `<option value="" class="dataUsuario">Seleccionar categoria</option>`;
         categorias.forEach(cat => {
             selectCategoria.innerHTML += `<option value="${cat.id_categoria}" class="dataUsuario" >${cat.nombre}</option>` 
         });
@@ -112,9 +113,11 @@ formularioRegistroProducto.addEventListener('submit', async (e)=>{ //este formul
             const resultado = await cargarProducto.json();
             console.log("Producto cargado correctamente.", resultado);
             document.getElementById("mensajeExitoProducto").style.display = "block";
+            cargarIDproductos();
             setTimeout(()=> {
                 document.getElementById("mensajeExitoProducto").style.display = "none";
-                window.location.reload();
+                formularioRegistroProducto.reset();
+                // window.location.reload();
             },2000)
 
         } catch (error) {
@@ -141,6 +144,7 @@ async function cargarIDproductos(){  //Esta función carga los productos en el s
         const objeto = await respuesta.json();
         const productos = objeto.payload;
         const selectIDProducto = document.getElementById("productoSelect");
+        selectIDProducto.innerHTML = "Seleccionar producto";
         productos.forEach(p => {
             selectIDProducto.innerHTML += `<option value="${p.idProducto}" class="dataUsuario" >${p.producto}</option>` 
         });
@@ -179,7 +183,8 @@ formularioInventario.addEventListener("submit", async (e) => { // este formulari
         document.getElementById("mensajeExitoInventario").style.display = "block";
         setTimeout(()=> {
             document.getElementById("mensajeExitoInventario").style.display = "none";
-            window.location.reload();
+            formularioInventario.reset();
+            // window.location.reload();
         },2000)
         
     } catch (error) {

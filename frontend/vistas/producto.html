@@ -18,7 +18,7 @@
                     <input type="text" placeholder="Buscar productos...">  
 
                     <div class="navDetalles">
-                        <p onclick="favoritos()">Favoritos</p>
+                        <p onclick="favoritos()" id="favoritos">Favoritos</p>
                         <p class="agregarProducto" id="agregarProducto">Agregar Productos</p>
                         <select name="categorias" id="categorias">
                             <option value="">Productos</option>
@@ -29,7 +29,7 @@
                         </select>
                         <p class="nombrePagina"><a href="../vistas/index.html">Lana & Lino</a></p>
                         <img src="../img/profile-user.png" alt="perfilUsuario" class="perfilUsuario" onclick="perfilUsuario()">
-                        <img src="../img/cart.png" alt="carrito" class="carrito" onclick="carrito()">
+                        <img src="../img/cart.png" id="carrito" alt="carrito" class="carrito" onclick="carrito()">
                         <p onclick="login()" id="textoSesiones">Iniciar sesion</p>
                         <img src="../img/dark-mode.png" alt="modoOscuro" class="modoOscuro" onclick="darkMode()">
                     </div>
@@ -79,8 +79,8 @@
                     <button type="submit" class="btnRegistro">Registrarse</button>
                 </form>
             </div>
-
-                <div class="gridProducto">
+                <!-- Datos para el Usuario (aparece solo si es usuario)-->
+                <div class="gridProducto" id="productoUsuario"> 
                     <div>
                         <img src="../img/remera1.jpg" alt="remera" class="imgPrimerVista">
                     </div>
@@ -130,8 +130,34 @@
                         <button class="agregarCarrito">Agregar al carrito</button>
                     </div>
                 </div>
+                <!-- Formulario para que el Administrador pueda modificar los datos del produtco (aparece solo si es admin) -->
+                <div class="gridProducto" id="formularioAdmin"> 
+                    <div>
+                        <img src="../img/remera1.jpg" alt="remera" class="imgPrimerVista">
+                    </div>
+                    
+                        <form id="formEditarProducto" method="post">
+                            <h1>Modificar Producto</h1>
+                            <input type="text" placeholder="Nombre del producto" name="nombre" id="nombreProducto">
 
+                            <input type="number" placeholder="Precio" name="precio" id="precioProducto">
 
+                            <input type="text" placeholder="Descripcion" name="descripcion" id="descripcionProducto">
+
+                            <input type="text" placeholder="Color del producto" name="color" id="coloresProducto">
+
+                            <div class="tallesAdmin">
+                                <label>Ingresar talles</label>
+                                <label><input type="radio" name="talles" value="S" class="checkTalles dataUsuario">S</label>
+                                <label><input type="radio" name="talles" value="M" class="checkTalles dataUsuario">M</label>
+                                <label><input type="radio" name="talles" value="L" class="checkTalles dataUsuario">L</label>
+                                <label><input type="radio" name="talles" value="XL" class="checkTalles dataUsuario">XL</label>
+                            </div>
+
+                            <button type="submit" class="btnAdmin">Guardar cambios</button>
+                        </form>
+                    
+                </div>    
         </main>
         <footer class="footer">
                 <div>
@@ -144,5 +170,6 @@
         </footer>
     </div>    
     <script src="../js/index.js"></script>
+    <script src="../js/producto.js"></script>
 </body>
 </html>

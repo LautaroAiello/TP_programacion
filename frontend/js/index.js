@@ -1,7 +1,7 @@
 let token = localStorage.getItem('authToken');
 let rol = localStorage.getItem('rol');
 
-function login(){
+function login(){ 
     document.getElementById("login").style.display = "flex";
 }
 function exit(){
@@ -17,20 +17,7 @@ function exitRe(){
     document.getElementById("registro").style.display = "none";
 }
 
-const card = document.querySelectorAll(".card");
-card.forEach(c => {
-    c.addEventListener("click", () => {
-      if(rol !== "Admin"){
-        if(token){
-          window.location.href = 'producto.html';
-        }else{
-          login();
-        }
-      }else{
 
-      }
-    })
-});
 
 function darkMode() {
   document.body.classList.toggle("modo-oscuro");
@@ -130,19 +117,7 @@ textoCerrarSesion = () =>{
       textoSesiones.innerText = "Iniciar sesión";
     }
 }
-document.addEventListener('DOMContentLoaded', () => {
-  textoCerrarSesion();
-  if(rol === "Admin"){
-    mostrarBotonAgregarProducto();
-  }
-});
-document.addEventListener('DOMContentLoaded', () => {
-  
-  if(rol === "User" || rol === null){
-    const boton = document.getElementById("agregarProducto");
-    boton.style.display = "none";
-  }
-});
+
 
 mostrarBotonAgregarProducto = () =>{
     const boton = document.getElementById("agregarProducto");
@@ -163,3 +138,83 @@ mostrarBotonAgregarProducto = () =>{
 function irAPagar(){
   window.location.href = 'pantallaPago.html';
 }
+
+
+const carruselFotos = document.getElementById("carruselFotos"); // Esto agrega la funcion de redireccionar al hacer click en las cards del carrusel de fotos
+
+if(carruselFotos){
+  carruselFotos.addEventListener("click", (e) => {
+    const card = e.target.closest(".card");
+    if (card) {
+      const id = card.dataset.id;
+        if (token) {
+          window.location.href = `producto.html?id=${id}`;
+        } else {
+          login();
+        }
+    }
+  });
+}
+
+
+async function traerProductos(){ 
+    try {
+        const respuesta = await fetch("http://localhost:4000/api/obtenerProductos", {
+            headers: {
+                Authorization: `${token}`
+            }
+        });
+
+        if (!respuesta.ok){
+          throw new Error("Error al obtener categorías");  
+        } 
+        const objeto = await respuesta.json();
+        const productos = objeto.payload;
+        const carruselFotos = document.getElementById("carruselFotos");
+
+        if(!carruselFotos){
+          return;
+        }
+
+        productos.forEach(p => {  
+          let botonesHTML = "";
+          let favorito = "";
+          if(rol === "Admin"){
+            botonesHTML = `<button class="btnAgregarCarrito btnAdmin">Modificar producto</button>`;
+          } else if(rol === "User" || rol === null){ 
+            botonesHTML = `<button class="btnAgregarCarrito btnUsuario">Agregar al carrito</button>`;
+            favorito = `<small>Agregar a favoritos</small>`;
+          }
+            carruselFotos.innerHTML += `<div class="card" id="card" data-id="${p.idProducto}">
+                                                <img src="../img/remera1.jpg" alt="remera1">
+                                                <div class="descripcionCard">
+                                                    <p>${p.producto}</p>
+                                                    ${favorito}
+                                                </div>
+                                                <p>${p.precio}</p>
+                                                ${botonesHTML}
+                                            </div>` 
+        });
+    } catch (error) {
+        console.error("Error al cargar categorías:", error);
+        alert("No se pudieron cargar las categorías.");
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  if(!token){
+    traerProductos();
+  }else{
+    traerProductos();
+  }
+  textoCerrarSesion();
+
+  
+  const btnAgregarProducto = document.getElementById("agregarProducto");
+  if(rol === "Admin"){
+    mostrarBotonAgregarProducto();
+  }else if(rol === "User" || rol === null){
+    btnAgregarProducto.style.display = "none";
+  }
+});
