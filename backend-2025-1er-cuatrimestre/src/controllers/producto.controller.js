@@ -20,7 +20,6 @@ const obtenerDatosProducto = async (req,res) => {
         const id = req.params.id
         const connection = await getConnection();
         const response = await connection.query("select p.nombre as producto, p.descripcion as descripcion, p.precio as precio, p.genero as genero, p.imagen as ulrImagen, c.id_categoria as idCategoria, c.nombre as categoria, i.talle, i.color, i.stock, i.id_inventario as idInventario from producto p join categoria c on p.id_categoria = c.id_categoria join inventario i on i.id_producto = p.id_producto where p.id_producto = ?;", [id]);
-        console.log(response)
         res.json({codigo: 200, mensaje: "OK", payload:  response});
     }   
     catch(error){

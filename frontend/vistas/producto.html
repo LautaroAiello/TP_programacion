@@ -85,9 +85,9 @@
                         <img src="../img/remera1.jpg" alt="remera" class="imgPrimerVista">
                     </div>
                     <div class="datosProducto">
-                        <h2 class="nombreProducto">Remera modelo 1</h2>
+                        <h2 class="nombreProducto" id="nombreProducto">Remera modelo 1</h2>
                         <div class="precio">
-                            <p>$30.000</p>
+                            <p id="precioProducto">$30.000</p>
                             <span>Cuotas:</span>
                             <select name="cuota" id="cuota">
                                 <option value="1">1</option>
@@ -97,16 +97,16 @@
                                 <option value="1">12</option>
                             </select>
                         </div>
-                        <span class="descripcion">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab harum eveniet labore, nemo molestiae assumenda soluta repellendus beatae totam iste tempore vel id ipsum quaerat vitae voluptate sunt aperiam sapiente.</span>
+                        <span class="descripcion" id="descripcionProducto">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab harum eveniet labore, nemo molestiae assumenda soluta repellendus beatae totam iste tempore vel id ipsum quaerat vitae voluptate sunt aperiam sapiente.</span>
                         
-                        <div class="colores">
+                        <div class="colores" id="coloresProducto">
                             <span>Color:</span>
                             <p>Negro</p>
                             <p>Blanco</p>
                             <p>Rojo</p>
                         </div>
                         
-                        <div class="talles">
+                        <div class="talles" id="tallesProducto">
                             <span>Talles: </span>
                             <p>S</p>
                             <p>M</p>
@@ -130,7 +130,7 @@
                         <button class="agregarCarrito">Agregar al carrito</button>
                     </div>
                 </div>
-                <!-- Formulario para que el Administrador pueda modificar los datos del produtco (aparece solo si es admin) -->
+                <!-- Formulario para que el Administrador pueda modificar los datos del prodcto (aparece solo si es admin) -->
                 <div class="gridProducto" id="formularioAdmin"> 
                     <div>
                         <img src="../img/remera1.jpg" alt="remera" class="imgPrimerVista">
@@ -138,13 +138,13 @@
                     
                         <form id="formEditarProducto" method="post">
                             <h1>Modificar Producto</h1>
-                            <input type="text" placeholder="Nombre del producto" name="nombre" id="nombreProducto">
+                            <input type="text" placeholder="Nombre del producto" name="nombre" id="nombreProductoAdmin">
 
-                            <input type="number" placeholder="Precio" name="precio" id="precioProducto">
+                            <input type="number" placeholder="Precio" name="precio" id="precioProductoAdmin">
 
-                            <input type="text" placeholder="Descripcion" name="descripcion" id="descripcionProducto">
+                            <input type="text" placeholder="Descripcion" name="descripcion" id="descripcionProductoAdmin">
 
-                            <input type="text" placeholder="Color del producto" name="color" id="coloresProducto">
+                            <input type="text" placeholder="Color del producto" name="color" id="coloresProductoAdmin">
 
                             <div class="tallesAdmin">
                                 <label>Ingresar talles</label>

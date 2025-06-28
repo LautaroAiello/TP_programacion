@@ -335,6 +335,21 @@ p,h1,h2,button,select,input {
     width: 2%;
 }
 
+.agregarFavoritos{
+    color: #474747;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 6px;
+    margin-top: 10px;
+    cursor: pointer;     
+}
+.agregarFavoritos:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    color: black;
+    font-size: 15px;
+}
+
 
 /* MODO OSCURO */
 

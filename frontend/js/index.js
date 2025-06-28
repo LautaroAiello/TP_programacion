@@ -142,19 +142,19 @@ function irAPagar(){
 
 const carruselFotos = document.getElementById("carruselFotos"); // Esto agrega la funcion de redireccionar al hacer click en las cards del carrusel de fotos
 
-if(carruselFotos){
-  carruselFotos.addEventListener("click", (e) => {
-    const card = e.target.closest(".card");
-    if (card) {
-      const id = card.dataset.id;
-        if (token) {
-          window.location.href = `producto.html?id=${id}`;
-        } else {
-          login();
-        }
-    }
-  });
-}
+// if(carruselFotos){
+//   carruselFotos.addEventListener("click", (e) => {
+//     const card = e.target.closest(".card");
+//     if (card) {
+//       const id = card.dataset.id;
+//         if (token) {
+//           window.location.href = `producto.html?id=${id}`;
+//         } else {
+//           login();
+//         }
+//     }
+//   });
+// }
 
 
 async function traerProductos(){ 
@@ -183,7 +183,7 @@ async function traerProductos(){
             botonesHTML = `<button class="btnAgregarCarrito btnAdmin">Modificar producto</button>`;
           } else if(rol === "User" || rol === null){ 
             botonesHTML = `<button class="btnAgregarCarrito btnUsuario">Agregar al carrito</button>`;
-            favorito = `<small>Agregar a favoritos</small>`;
+            favorito = `<p class="agregarFavoritos" id="agregarFavoritos" onclick="agregarAFavoritos(${p.idProducto})">Agregar a favoritos</p>`;
           }
             carruselFotos.innerHTML += `<div class="card" id="card" data-id="${p.idProducto}">
                                                 <img src="../img/remera1.jpg" alt="remera1">
@@ -199,6 +199,24 @@ async function traerProductos(){
         console.error("Error al cargar categorías:", error);
         alert("No se pudieron cargar las categorías.");
     }
+}
+
+agregarAFavoritos = async (id_producto) => {
+  const id_usuario = localStorage.getItem("id");
+  try {
+    const respuesta = await fetch("http://localhost:4000/api/agregarFavorito", {
+      method: "POST",
+      headers: { 
+        "Content-Type": "application/json", 
+        Authorization: `${token}` 
+      },
+      body: JSON.stringify({id_producto,id_usuario })
+    });
+    const data = await respuesta.json();
+    console.log(data);
+  } catch (error) {
+    console.error("Error al agregar a favoritos:", error);
+  }
 }
 
 
