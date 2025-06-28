@@ -31,7 +31,6 @@ Los servicios que no necesitan de un token están aclarados en cada endpoint, si
             genero: string
             id_categoria: number
             imagen: string
-
         }
     .
 * Usuarios:

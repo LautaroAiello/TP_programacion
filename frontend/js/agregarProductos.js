@@ -48,11 +48,11 @@ formularioCategoria.addEventListener("submit", async (e) =>{ // este formulario 
         const nombreCategoria = await crearCategoria.json();
         console.log("Categoria cargada correctamente.", nombreCategoria);
         document.getElementById("mensajeExitoCategoria").style.display = "block";
+        cargarIDCategorias();
         setTimeout(()=> {
             document.getElementById("mensajeExitoCategoria").style.display = "none";
-            window.location.reload();
+            // window.location.reload();
         },2000)
-        
     } catch (error) {
         console.error(error)
         alert("Error al crear categoria.")
@@ -63,17 +63,18 @@ formularioCategoria.addEventListener("submit", async (e) =>{ // este formulario 
 async function cargarIDCategorias(){ //Esta función carga las categorías en el select del formulario de registro de productos
     try {
         const respuesta = await fetch("http://localhost:4000/api/obtenerCategorias", {
+            method: 'GET',
             headers: {
                 Authorization: `${tokenAuth}`
             }
         });
-
         if (!respuesta.ok){
           throw new Error("Error al obtener categorías");  
         } 
         const objeto = await respuesta.json();
         const categorias = objeto.payload;
         const selectCategoria = document.getElementById("categoriaSelect");
+        selectCategoria.innerHTML = ""
         categorias.forEach(cat => {
             selectCategoria.innerHTML += `<option value="${cat.id_categoria}" class="dataUsuario" >${cat.nombre}</option>` 
         });
