@@ -84,6 +84,7 @@
                 <form id="formCategoria" method="post">
                     <h2>Crear categoria</h2>
                     <input type="text" name="categoria" placeholder="Ingresar la categoria" class="dataUsuario" id="categoria">
+                    <p class="mensajeExitoCategoria" id="mensajeExitoCategoria">Categoria creada con exito</p>
                     <button class="btnAdmin" type="submit">Crear categoria</button>
                 </form>
 
@@ -95,15 +96,14 @@
 
                     <input type="text" name="genero" placeholder="Ingresar genero del producto" class="dataUsuario" id="genero">
 
-
-                    <input type="text" name="categoria" placeholder="Ingresar ID de categoria" class="dataUsuario" id="categoria">
-
-                    
+                    <select name="categoria" id="categoriaSelect">
+                        <option value="" class="dataUsuario" >Seleccionar categoria</option>
+                    </select>
 
                     <input type="number" name="precio" placeholder="Ingresar precio" class="dataUsuario" id="precio">
 
                     <input type="file" name="imagen" accept="image/*" id="imagen" class="dataUsuario">
-
+                    <p class="mensajeExitoProducto" id="mensajeExitoProducto">Producto agregado con exito</p>
                     <button class="btnAdmin" type="submit">Cargar producto</button>
                     
                 </form>
@@ -112,18 +112,20 @@
 
                     <div class="talles">
                         <label>Ingresar talles</label>
-                        <label><input type="radio" name="talles" class="checkTalles dataUsuario">S</label>
-                        <label><input type="radio" name="talles" class="checkTalles dataUsuario">M</label>
-                        <label><input type="radio" name="talles" class="checkTalles dataUsuario">L</label>
-                        <label><input type="radio" name="talles" class="checkTalles dataUsuario">XL</label>
+                        <label><input type="radio" name="talles" value="S" class="checkTalles dataUsuario">S</label>
+                        <label><input type="radio" name="talles" value="M" class="checkTalles dataUsuario">M</label>
+                        <label><input type="radio" name="talles" value="L" class="checkTalles dataUsuario">L</label>
+                        <label><input type="radio" name="talles" value="XL" class="checkTalles dataUsuario">XL</label>
                     </div>
 
                     <input type="text" name="color" placeholder="Ingresar color del producto" class="dataUsuario" id="color">
 
-                    <input type="number" name="stock" placeholder="Ingresar el stock" class="dataUsuario" id="color">
+                    <input type="number" name="stock" placeholder="Ingresar el stock" class="dataUsuario" id="stock">
 
-                    <input type="number" name="idProducto" placeholder="Ingresar el idProducto" class="dataUsuario" id="idProducto">
-
+                    <select name="id_producto" id="productoSelect">
+                        <option value="" class="dataUsuario">Seleccionar producto</option>
+                    </select>
+                    <p class="mensajeExitoInventario" id="mensajeExitoInventario">Inventario creado con exito</p>
                     <button class="btnAdmin" type="submit">Cargar inventario</button>
                     
                 </form>
