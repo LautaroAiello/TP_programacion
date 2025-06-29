@@ -242,13 +242,18 @@ const obtenerFavoritos = async (req, res) => {
         }
 
         const id_usuario = req.params.id;
-
         const connection = await getConnection();
-        const response = await connection.query("SELECT id_producto as idProducto FROM favorito WHERE id_usuario = ?",[id_usuario]);
+        // Trae los datos completos del producto favorito
+        const response = await connection.query(`
+            SELECT p.id_producto as idProducto, p.nombre as producto, p.precio as precio, p.imagen as ulrImagen
+            FROM favorito f
+            JOIN producto p ON f.id_producto = p.id_producto
+            WHERE f.id_usuario = ?
+        `, [id_usuario]);
 
         res.json({
             codigo: 200,
-            mensaje: "IDs de productos favoritos obtenidos correctamente",
+            mensaje: "Productos favoritos obtenidos correctamente",
             payload: response
         });
     } catch (error) {

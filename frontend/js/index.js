@@ -156,9 +156,40 @@ const carruselFotos = document.getElementById("carruselFotos"); // Esto agrega l
 //   });
 // }
 
+function redireccionesCarrusel(){
+  if(carruselFotos){
+          carruselFotos.addEventListener("click", (e) => {
+            const card = e.target.closest(".card");
+            if (card) {
+              const id = card.dataset.id;
+                if (token) {
+                  window.location.href = `producto.html?id=${id}`;
+                } else {
+                  login();
+                }
+            }
+          });
+        }
+}
+
+
+async function obtenerIdsFavoritos() { // Esto obtiene los ids de los productos favoritos del usuario
+    const idUser = localStorage.getItem("id");
+    if (!idUser) return []; // Si no está logueado, retorna array vacío
+    const response = await fetch(`http://localhost:4000/api/obtenerFavoritos/${idUser}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `${token}`
+        }
+    });
+    const data = await response.json();
+    return data.payload.map(f => f.idProducto);// Devuelve un array solo con los ids de producto favoritos
+}
 
 async function traerProductos(){ 
     try {
+        const favoritosIds = await obtenerIdsFavoritos();
         const respuesta = await fetch("http://localhost:4000/api/obtenerProductos", {
             headers: {
                 Authorization: `${token}`
@@ -166,16 +197,18 @@ async function traerProductos(){
         });
 
         if (!respuesta.ok){
-          throw new Error("Error al obtener categorías");  
+          throw new Error("Error al obtener productos");  
         } 
         const objeto = await respuesta.json();
         const productos = objeto.payload;
-        const carruselFotos = document.getElementById("carruselFotos");
 
         if(!carruselFotos){
           return;
         }
 
+        redireccionesCarrusel();
+
+        carruselFotos.innerHTML = "";
         productos.forEach(p => {  
           let botonesHTML = "";
           let favorito = "";
@@ -183,7 +216,11 @@ async function traerProductos(){
             botonesHTML = `<button class="btnAgregarCarrito btnAdmin">Modificar producto</button>`;
           } else if(rol === "User" || rol === null){ 
             botonesHTML = `<button class="btnAgregarCarrito btnUsuario">Agregar al carrito</button>`;
-            favorito = `<p class="agregarFavoritos" id="agregarFavoritos" onclick="agregarAFavoritos(${p.idProducto})">Agregar a favoritos</p>`;
+            if (favoritosIds.includes(p.idProducto)) { // Verifica si el producto está en favoritos
+              favorito = `<p class="agregarFavoritos" id="agregarFavoritos" onclick="eliminarFavorito(event, ${p.idProducto})">Eliminar de favoritos</p>`;
+            } else {
+              favorito = `<p class="agregarFavoritos" id="agregarFavoritos" onclick="agregarAFavoritos(event, ${p.idProducto})">Agregar a favoritos</p>`;
+            }
           }
             carruselFotos.innerHTML += `<div class="card" id="card" data-id="${p.idProducto}">
                                                 <img src="../img/remera1.jpg" alt="remera1">
@@ -196,12 +233,13 @@ async function traerProductos(){
                                             </div>` 
         });
     } catch (error) {
-        console.error("Error al cargar categorías:", error);
-        alert("No se pudieron cargar las categorías.");
+        console.error("Error al cargar productos:", error);
+        alert("No se pudieron cargar los productos.");
     }
 }
 
-agregarAFavoritos = async (id_producto) => {
+agregarAFavoritos = async (event, id_producto) => {
+  event.stopPropagation();
   const id_usuario = localStorage.getItem("id");
   try {
     const respuesta = await fetch("http://localhost:4000/api/agregarFavorito", {
@@ -230,9 +268,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   
   const btnAgregarProducto = document.getElementById("agregarProducto");
-  if(rol === "Admin"){
-    mostrarBotonAgregarProducto();
-  }else if(rol === "User" || rol === null){
-    btnAgregarProducto.style.display = "none";
+  if(btnAgregarProducto){
+    if(rol === "Admin"){
+      mostrarBotonAgregarProducto();
+    }else if(rol === "User" || rol === null){
+      btnAgregarProducto.style.display = "none";
+    }
   }
+  
 });

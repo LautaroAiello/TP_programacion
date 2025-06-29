@@ -73,12 +73,18 @@ async function cargarIDCategorias(){ //Esta función carga las categorías en el
           throw new Error("Error al obtener categorías");  
         } 
         const objeto = await respuesta.json();
+        console.log("Categorias obtenidas:", objeto);
         const categorias = objeto.payload;
         const selectCategoria = document.getElementById("categoriaSelect");
         selectCategoria.innerHTML = `<option value="" class="dataUsuario">Seleccionar categoria</option>`;
-        categorias.forEach(cat => {
-            selectCategoria.innerHTML += `<option value="${cat.id_categoria}" class="dataUsuario" >${cat.nombre}</option>` 
-        });
+        if (Array.isArray(categorias) && categorias.length > 0) {
+            categorias.forEach(cat => {
+                selectCategoria.innerHTML += `<option value="${cat.id_categoria}" class="dataUsuario" >${cat.nombre}</option>` 
+            });
+        } else {
+            // Si no hay categorías, muestra un mensaje o deja solo la opción por defecto
+            console.warn("No hay categorías disponibles.");
+        }
     } catch (error) {
         console.error("Error al cargar categorías:", error);
         alert("No se pudieron cargar las categorías.");
@@ -144,7 +150,7 @@ async function cargarIDproductos(){  //Esta función carga los productos en el s
         const objeto = await respuesta.json();
         const productos = objeto.payload;
         const selectIDProducto = document.getElementById("productoSelect");
-        selectIDProducto.innerHTML = "Seleccionar producto";
+        selectIDProducto.innerHTML = `<option value="" class="dataUsuario">Seleccionar producto</option>`;
         productos.forEach(p => {
             selectIDProducto.innerHTML += `<option value="${p.idProducto}" class="dataUsuario" >${p.producto}</option>` 
         });

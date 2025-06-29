@@ -85,7 +85,7 @@
                         <img src="../img/remera1.jpg" alt="remera" class="imgPrimerVista">
                     </div>
                     <div class="datosProducto">
-                        <h2 class="nombreProducto" id="nombreProducto">Remera modelo 1</h2>
+                        <h2 class="nombreProducto" id="nombreProducto"></h2>
                         <div class="precio">
                             <p id="precioProducto">$30.000</p>
                             <span>Cuotas:</span>
@@ -115,7 +115,7 @@
                         </div>
                         
                         <div class="stock">
-                            <span>Cantidad: </span>
+                            <span id="cantidadTitulo">Cantidad: </span>
                             <select name="stock" id="stock" >
                                 <option value="">1 unidad</option>
                                 <option value="">2 unidades</option>
@@ -124,10 +124,9 @@
                                 <option value="">5 unidades</option>
                                 <option value="">6 unidades</option>
                             </select>
-                            <small>(+50 unidades)</small>
                         </div>
-                        
-                        <button class="agregarCarrito">Agregar al carrito</button>
+                        <p class="mensajeAclaracion" id="mensajeStockUser"></p>
+                        <button class="agregarCarrito" id="btnAgregarAlCarrito">Agregar al carrito</button>
                     </div>
                 </div>
                 <!-- Formulario para que el Administrador pueda modificar los datos del prodcto (aparece solo si es admin) -->
@@ -136,24 +135,26 @@
                         <img src="../img/remera1.jpg" alt="remera" class="imgPrimerVista">
                     </div>
                     
-                        <form id="formEditarProducto" method="post">
+                        <form id="formEditarProducto" method="put">
                             <h1>Modificar Producto</h1>
-                            <input type="text" placeholder="Nombre del producto" name="nombre" id="nombreProductoAdmin">
+                            <input type="text" placeholder="Nombre del producto" name="nombre" id="nombreProductoAdmin" disabled>
 
-                            <input type="number" placeholder="Precio" name="precio" id="precioProductoAdmin">
+                            <input type="number" placeholder="Precio" name="precio" id="precioProductoAdmin" disabled>
 
-                            <input type="text" placeholder="Descripcion" name="descripcion" id="descripcionProductoAdmin">
+                            <input type="text" placeholder="Descripcion" name="descripcion" id="descripcionProductoAdmin" disabled>
 
-                            <input type="text" placeholder="Color del producto" name="color" id="coloresProductoAdmin">
+                            <input type="text" placeholder="Color del producto" name="color" id="coloresProductoAdmin" disabled>
+
+                            <input type="text" placeholder="Modificar stock del producto" name="stockNuevo" id="stockNuevo" disabled>
 
                             <div class="tallesAdmin">
-                                <label>Ingresar talles</label>
-                                <label><input type="radio" name="talles" value="S" class="checkTalles dataUsuario">S</label>
-                                <label><input type="radio" name="talles" value="M" class="checkTalles dataUsuario">M</label>
-                                <label><input type="radio" name="talles" value="L" class="checkTalles dataUsuario">L</label>
-                                <label><input type="radio" name="talles" value="XL" class="checkTalles dataUsuario">XL</label>
+                                <label>Talle:</label>
+                                <label><input type="radio" name="talles" value="S" class="checkTalles dataUsuario" disabled>S</label>
+                                <label><input type="radio" name="talles" value="M" class="checkTalles dataUsuario" disabled>M</label>
+                                <label><input type="radio" name="talles" value="L" class="checkTalles dataUsuario" disabled>L</label>
+                                <label><input type="radio" name="talles" value="XL" class="checkTalles dataUsuario" disabled>XL</label>
                             </div>
-
+                            <p class="mensajeAclaracion" id="mensajeStockAdmin"></p>
                             <button type="submit" class="btnAdmin">Guardar cambios</button>
                         </form>
                     
