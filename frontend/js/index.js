@@ -201,7 +201,6 @@ async function traerProductos(){
         } 
         const objeto = await respuesta.json();
         const productos = objeto.payload;
-
         if(!carruselFotos){
           return;
         }
@@ -215,21 +214,22 @@ async function traerProductos(){
           if(rol === "Admin"){
             botonesHTML = `<button class="btnAgregarCarrito btnAdmin">Modificar producto</button>`;
           } else if(rol === "User" || rol === null){ 
-            botonesHTML = `<button class="btnAgregarCarrito btnUsuario">Agregar al carrito</button>`;
+            //botonesHTML = `<button class="btnAgregarCarrito btnUsuario" id="agregarACarrito"></button>`;
             if (favoritosIds.includes(p.idProducto)) { // Verifica si el producto está en favoritos
               favorito = `<p class="agregarFavoritos" id="agregarFavoritos" onclick="eliminarFavorito(event, ${p.idProducto})">Eliminar de favoritos</p>`;
             } else {
               favorito = `<p class="agregarFavoritos" id="agregarFavoritos" onclick="agregarAFavoritos(event, ${p.idProducto})">Agregar a favoritos</p>`;
             }
           }
-            carruselFotos.innerHTML += `<div class="card" id="card" data-id="${p.idProducto}">
-                                                <img src="../img/remera1.jpg" alt="remera1">
+            carruselFotos.innerHTML += `<div class="card" id="card" data-id="${p.idProducto}"data-color="${p.color || ''}" 
+                                        data-categoria="${p.categoria || ''}" 
+                                        data-genero="${p.genero || ''}">
+                                                <img src="../img/fotosRopa/${p.ulrImagen}" alt="remera1">
                                                 <div class="descripcionCard">
                                                     <p>${p.producto}</p>
                                                     ${favorito}
                                                 </div>
-                                                <p>${p.precio}</p>
-                                                ${botonesHTML}
+                                                <p>$${p.precio}</p>
                                             </div>` 
         });
     } catch (error) {
@@ -265,7 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
     traerProductos();
   }
   textoCerrarSesion();
-
   
   const btnAgregarProducto = document.getElementById("agregarProducto");
   if(btnAgregarProducto){
@@ -274,6 +273,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }else if(rol === "User" || rol === null){
       btnAgregarProducto.style.display = "none";
     }
-  }
-  
+  }  
 });
+
+
+
+
+
+// filtrarPor = (tipo, valor) => {
+//     const cards = document.querySelectorAll("#carruselFotos .card");
+//     cards.forEach(card => {
+//       console.log(card)
+//         const producto = card.querySelector(".descripcionCard p").textContent.toLowerCase();
+//         const color = card.querySelector(".color").textContent.toLowerCase();
+//         if (tipo === 'categoria' && producto.includes(valor.toLowerCase())) {
+//             card.style.display = "block";
+//         } else if (tipo === 'color' && color.includes(valor.toLowerCase())) {
+//             card.style.display = "block";
+//         } else {
+//             card.style.display = "none";
+//         }
+//     });
+// }
+

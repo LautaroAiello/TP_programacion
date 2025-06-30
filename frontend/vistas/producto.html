@@ -20,13 +20,6 @@
                     <div class="navDetalles">
                         <p onclick="favoritos()" id="favoritos">Favoritos</p>
                         <p class="agregarProducto" id="agregarProducto">Agregar Productos</p>
-                        <select name="categorias" id="categorias">
-                            <option value="">Productos</option>
-                            <option value="">Masculino</option>
-                            <option value="">Femenino</option>
-                            <option value="">Color</option>
-                            <option value="">Categoria</option>
-                        </select>
                         <p class="nombrePagina"><a href="../vistas/index.html">Lana & Lino</a></p>
                         <img src="../img/profile-user.png" alt="perfilUsuario" class="perfilUsuario" onclick="perfilUsuario()">
                         <img src="../img/cart.png" id="carrito" alt="carrito" class="carrito" onclick="carrito()">
@@ -82,39 +75,40 @@
                 <!-- Datos para el Usuario (aparece solo si es usuario)-->
                 <div class="gridProducto" id="productoUsuario"> 
                     <div>
-                        <img src="../img/remera1.jpg" alt="remera" class="imgPrimerVista">
+                        <img alt="remera" class="imgPrimerVista" id="imgProducto">
                     </div>
-                    <div class="datosProducto">
+                    <div class="datosProducto" id="datosProductos">
                         <h2 class="nombreProducto" id="nombreProducto"></h2>
                         <div class="precio">
-                            <p id="precioProducto">$30.000</p>
+                            <p id="precioProducto"></p>
                             <span>Cuotas:</span>
                             <select name="cuota" id="cuota">
                                 <option value="1">1</option>
-                                <option value="1">3</option>
-                                <option value="1">6</option>
-                                <option value="1">9</option>
-                                <option value="1">12</option>
+                                <option value="3">3</option>
+                                <option value="6">6</option>
+                                <option value="9">9</option>
+                                <option value="12">12</option>
                             </select>
                         </div>
+                        <p id="precioCuota"></p>
                         <span class="descripcion" id="descripcionProducto">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab harum eveniet labore, nemo molestiae assumenda soluta repellendus beatae totam iste tempore vel id ipsum quaerat vitae voluptate sunt aperiam sapiente.</span>
                         
                         <div class="colores" id="coloresProducto">
-                            <span>Color:</span>
+                            <!-- <span>Color:</span>
                             <p>Negro</p>
                             <p>Blanco</p>
-                            <p>Rojo</p>
+                            <p>Rojo</p> -->
                         </div>
                         
                         <div class="talles" id="tallesProducto">
-                            <span>Talles: </span>
+                            <!-- <span>Talles: </span>
                             <p>S</p>
                             <p>M</p>
                             <p>L</p>
-                            <p>XL</p>
+                            <p>XL</p> -->
                         </div>
                         
-                        <div class="stock">
+                        <!-- <div class="stock">
                             <span id="cantidadTitulo">Cantidad: </span>
                             <select name="stock" id="stock" >
                                 <option value="">1 unidad</option>
@@ -124,15 +118,15 @@
                                 <option value="">5 unidades</option>
                                 <option value="">6 unidades</option>
                             </select>
-                        </div>
+                        </div> -->
                         <p class="mensajeAclaracion" id="mensajeStockUser"></p>
-                        <button class="agregarCarrito" id="btnAgregarAlCarrito">Agregar al carrito</button>
+                        <button class="agregarCarrito" id="btnAgregarAlCarrito" onclick="agregarACarrito()">Agregar al carrito</button>
                     </div>
                 </div>
                 <!-- Formulario para que el Administrador pueda modificar los datos del prodcto (aparece solo si es admin) -->
                 <div class="gridProducto" id="formularioAdmin"> 
                     <div>
-                        <img src="../img/remera1.jpg" alt="remera" class="imgPrimerVista">
+                        <img alt="remera" class="imgPrimerVista" id="imgProductoAdmin">
                     </div>
                     
                         <form id="formEditarProducto" method="put">
@@ -172,5 +166,6 @@
     </div>    
     <script src="../js/index.js"></script>
     <script src="../js/producto.js"></script>
+    <script src="../js/agregarACarrito.js"></script>
 </body>
 </html>

@@ -18,14 +18,6 @@
                     <input type="text" placeholder="Buscar productos...">  
                     <div class="navDetalles">
                         <p onclick="favoritos()">Favoritos</p>
-
-                        <select name="categorias" id="categorias">
-                            <option value="">Productos</option>
-                            <option value="">Masculino</option>
-                            <option value="">Femenino</option>
-                            <option value="">Color</option>
-                            <option value="">Categoria</option>
-                        </select>
                         <p class="nombrePagina"><a href="../vistas/index.html">Lana & Lino</a></p>
                         <img src="../img/profile-user.png" alt="perfilUsuario" class="perfilUsuario" onclick="perfilUsuario()">
                         <img src="../img/cart.png" alt="carrito" class="carrito">
@@ -78,30 +70,14 @@
                     <button type="submit" class="btnRegistro">Registrarse</button>
                 </form>
             </div>
-
-                <div class="carritoItems">
-                    <div class="itemCarrito">
+                <div class="carritoItems" id="carritoItems">
+                    <!-- <div class="itemCarrito">
                         <img src="../img/remera1.jpg" alt="remera" class="imgCarritoPrenda">
                         <p>Remera</p>
-                        <p class="precioUnidad">12000</p>
-                        <section id="cantidadCarrito">
-                            <img src="../img/left-arrow.png" class="imgStockCarrito disminuir">
-                            <p class="cantidad">1</p>
-                            <img src="../img/right-arrow.png" class="imgStockCarrito aumentar">
-                        </section>
+                        <p class="precioUnidad"></p>
+                        <p class="cantidad">1</p>
                         <img src="../img/trash-can.png" alt="eliminar" onclick="eliminarItem(event)" class="eliminar">
-                    </div>
-                    <div class="itemCarrito">
-                        <img src="../img/remera1.jpg" alt="remera" class="imgCarritoPrenda">
-                        <p>Remera</p>
-                        <p class="precioUnidad">12000</p>
-                        <section id="cantidadCarrito">
-                            <img src="../img/left-arrow.png" class="imgStockCarrito disminuir">
-                            <p class="cantidad">1</p>
-                            <img src="../img/right-arrow.png" class="imgStockCarrito aumentar">
-                        </section>
-                        <img src="../img/trash-can.png" alt="eliminar" onclick="eliminarItem(event)" class="eliminar">
-                    </div>
+                    </div> -->
                 </div>
                 <section class="totalPagar">
                     <p id="total"></p>

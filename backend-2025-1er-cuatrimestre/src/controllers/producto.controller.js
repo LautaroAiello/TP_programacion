@@ -6,7 +6,7 @@ const jwt = require ("jsonwebtoken");
 const obtenerProductos = async (req, res) => {
     try{
         const connection = await getConnection(); // agregado de idProducto a la consulta
-        const response = await connection.query("select p.id_producto as idProducto, p.nombre as producto, p.descripcion as descripcion, p.precio as precio, p.genero as genero, p.imagen as ulrImagen, c.id_categoria as idCategoria, c.nombre as categoria from producto p join categoria c on p.id_categoria = c.id_categoria;")
+        const response = await connection.query("select p.id_producto as idProducto, p.nombre as producto, p.descripcion as descripcion, p.precio as precio, p.genero as genero, p.imagen as ulrImagen, c.id_categoria as idCategoria, c.nombre as categoria,i.color AS color,i.talle AS talle from producto p join categoria c on p.id_categoria = c.id_categoria left join inventario i ON p.id_producto = i.id_producto;")
         res.json({codigo: 200, mensaje: "OK", payload:  response});
     }   
     catch(error){
@@ -293,7 +293,7 @@ const agregarACarrito = async (req, res) => {
         }
 
         const { id_inventario, id_usuario } = req.body;
-        const carritoProducto = { id_inventario, id_usuario, };
+        const carritoProducto = { id_inventario, id_usuario};
 
         const connection = await getConnection();
         const response = await connection.query("INSERT INTO carrito SET ?", carritoProducto);
@@ -319,7 +319,6 @@ const eliminarProductoCarrito = async (req, res) => {
         }
 
         const { id_usuario, id_inventario } = req.body;
-
         const connection = await getConnection();
         const response = await connection.query(
             "DELETE FROM carrito WHERE id_usuario = ? AND id_inventario = ?",

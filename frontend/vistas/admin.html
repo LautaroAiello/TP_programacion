@@ -19,13 +19,6 @@
 
                 <div class="navDetalles">
                     <p class="agregarProducto" id="agregarProducto">Agregar Productos</p>
-                    <select name="categorias" id="categorias">
-                        <option value="">Productos</option>
-                        <option value="">Masculino</option>
-                        <option value="">Femenino</option>
-                        <option value="">Color</option>
-                        <option value="">Categoria</option>
-                    </select>
                     <p class="nombrePagina"><a href="../vistas/index.html">Lana & Lino</a></p>
                     <img src="../img/profile-user.png" alt="perfilUsuario" class="perfilUsuario" onclick="perfilUsuario()">
                     <img src="../img/cart.png" id="carrito" alt="carrito" class="carrito" onclick="carrito()">
@@ -93,8 +86,14 @@
                     <input type="text" name="nombre" placeholder="Ingresar nombre del producto" class="dataUsuario" id="nombre">
 
                     <input type="text" name="descripcion" placeholder="Ingresar descripcion del producto" class="dataUsuario" id="descripcion">
-
-                    <input type="text" name="genero" placeholder="Ingresar genero del producto" class="dataUsuario" id="genero">
+                    
+                    <p>Genero:</p>
+                    <select name="genero" id="generoSelect">
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                        <option value="Unisex">Unisex</option>
+                    </select>
+                    <!-- <input type="text" name="genero" placeholder="Ingresar genero del producto" class="dataUsuario" id="genero"> -->
 
                     <select name="categoria" id="categoriaSelect">
                         <option value="" class="dataUsuario" >Seleccionar categoria</option>

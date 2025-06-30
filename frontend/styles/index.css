@@ -312,6 +312,12 @@ p,h1,h2,button,select,input {
     color: white;
 }
 
+.btnAgregarCarrito:hover{
+    background-color: #474747;
+    color: white;
+    cursor: pointer;
+}
+
 .tituloFavoritos{
     text-align: center;
     font-weight: 800;
@@ -485,4 +491,113 @@ body.modo-oscuro .totalPagar{
 body.modo-oscuro .totalPagar p,body.modo-oscuro .totalPagar button,body.modo-oscuro .totalPagar section{
     background-color: #101010;
     color: white;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu > li {
+  position: relative;
+  display: inline-block;
+}
+
+.menu li a {
+  display: block;
+  padding: 10px;
+  background: #ddd;
+  text-decoration: none;
+}
+
+.submenu, .subsubmenu {
+  display: none;
+  position: absolute;
+  background: #f9f9f9;
+  min-width: 150px;
+  z-index: 1;
+}
+
+.dropdown:hover .submenu {
+  display: block;
+  left: 0;
+  top: 100%;
+}
+
+.sub-dropdown:hover .subsubmenu {
+  display: block;
+  left: 100%;
+  top: 0;
+}
+
+.dropdownProductos {
+  position: relative;
+  background-color: #ffffff;
+}
+
+.productosBtn {
+  padding: 8px 12px;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  padding: 0;
+  z-index: 1000;
+  min-width: 180px;
+}
+
+.dropdownProductos:hover .submenu {
+  display: block;
+}
+
+.submenu li {
+  list-style: none;
+  position: relative;
+  background-color: #ffffff;
+}
+
+.submenu li a {
+  display: block;
+  padding: 10px 15px;
+  color: black;
+  white-space: nowrap;
+  font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.submenu li a:hover {
+  background-color: #f0f0f0;
+}
+
+.sub-dropdown:hover .subsubmenu {
+  display: block;
+}
+
+.subsubmenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: #ffffff;
+  min-width: 160px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+
+.subsubmenu li a {
+  padding: 8px 12px;
+}
+
+.subsubmenu li a:hover {
+  background-color: #e0e0e0;
 }

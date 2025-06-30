@@ -1,52 +1,74 @@
-document.addEventListener("DOMContentLoaded", () => {
-    let total = document.getElementById("total");
+let id_usuario = localStorage.getItem("id");
+let carritoItems = document.getElementById("carritoItems");
+
+cargarCarrito = async()=>{
+    document.addEventListener("DOMContentLoaded", async () => {
+        try {
+            const token = localStorage.getItem("authToken");
+            const cargarCarrito = await fetch(`http://localhost:4000/api/obtenerProductosCarrito/${id_usuario}`, {
+                headers: {
+                    Authorization: `${token}`
+                }
+            }).then(response => {
+                if (!response.ok) {
+                    throw new Error("Error al obtener los productos del carrito");
+                }  
+                return response.json();
+            });
     
-    function actualizarTotal(){
-        let suma = 0;
-        document.querySelectorAll(".itemCarrito").forEach(div=>{
-            const precio = Number(div.querySelector('.precioUnidad').innerText);
-            suma += precio;
+            const productosCarrito = await cargarCarrito.payload;
+    
+            // Agrupar productos por idInventario
+            const productosAgrupados = {};
+            productosCarrito.forEach(p => {
+                if (!productosAgrupados[p.idInventario]) {
+                    productosAgrupados[p.idInventario] = {
+                        ...p,
+                        cantidad: 1,
+                        precioTotal: p.precio
+                    };
+                } else {
+                    productosAgrupados[p.idInventario].cantidad += 1;
+                    productosAgrupados[p.idInventario].precioTotal += p.precio;
+                }
+            });
+    
+            // Mostrar solo un div por idInventario
+            carritoItems.innerHTML = "";
+            Object.values(productosAgrupados).forEach(p => {
+                carritoItems.innerHTML += `
+                    <div class="itemCarrito">
+                        <img src="../img/remera1.jpg" alt="remera" class="imgCarritoPrenda">
+                        <p>${p.producto}</p>
+                        <p class="precioUnidad">$${p.precioTotal}</p>
+                        <p class="cantidad">${p.cantidad}</p>
+                        <img src="../img/trash-can.png" alt="eliminar" onclick="eliminarProducto(${p.idInventario})" class="eliminar">
+                    </div>`;
+            });
+        } catch (error) {
+            console.error("Error al cargar el carrito:", error);
+            alert("No se pudieron cargar los productos del carrito.");
+        }
+    })
+}
+cargarCarrito();
+
+async function eliminarProducto(idInventario) {
+    try {
+        const response = await fetch(`http://localhost:4000/api/eliminarProductoCarrito`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `${token}`
+            },
+            body: JSON.stringify({ id_usuario, id_inventario : idInventario })
         });
-        total.innerText = `$ ${suma.toLocaleString()}`
+        console.log(await response.json())
+        if (!response.ok) {
+            throw new Error('No se pudo eliminar el producto del carrito');
+        }
+        window.location.reload();
+    } catch (error) {
+        alert(error.message);
     }
-    
-    document.querySelectorAll('.itemCarrito').forEach(div => {
-        const precio = div.querySelector('.precioUnidad');
-        const cantidad = div.querySelector('.cantidad');
-        const btnAumentar = div.querySelector('.aumentar');
-        const btnDisminuir = div.querySelector('.disminuir');
-
-        const precioUnitario = Number(precio.innerText);
-        
-
-        btnAumentar.addEventListener('click', () => {
-            let cantidadActual = Number(cantidad.innerText);
-            cantidadActual++;
-            cantidad.innerText = cantidadActual;
-            precio.innerText = `${precioUnitario * cantidadActual}`;
-            actualizarTotal();
-        });
-
-        btnDisminuir.addEventListener('click', () => {
-            let cantidadActual = Number(cantidad.innerText);
-            if (cantidadActual > 1) {
-                cantidadActual--;
-                cantidad.innerText = cantidadActual;
-                precio.innerText = `${precioUnitario * cantidadActual}`;
-                actualizarTotal();
-            }
-        });
-
-        actualizarTotal();
-    });
-})
-// function eliminarItem(e){
-//     const itemClickeado = e.target.closest(".itemCarrito");
-//     let item = document.querySelectorAll(".itemCarrito");
-//     item.forEach(i => {
-//         if(item === itemClickeado){
-//             item.innerText = "";
-//             actualizarTotal();
-//         }
-//     })
-// }
+}

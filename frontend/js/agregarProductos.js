@@ -1,28 +1,3 @@
-// .POST - /api/cargarProducto
-//         body:
-//         {
-//             nombre: string
-//             descripcion: string
-//             precio: number
-//             genero: string
-//             id_categoria: number
-//             imagen: string
-
-//         }
-// . POST - /api/crearInventario
-//         body: 
-//         {
-//             talle: string
-//             color: string
-//             stock: int
-//             id_producto: int
-//         }
-// . POST - /api/crearCategoria
-//         body: 
-//         {
-//             nombre: string
-//         }
-
 const formularioRegistroProducto = document.getElementById("editarFormAdmin");
 const formularioCategoria = document.getElementById("formCategoria");
 const formularioInventario = document.getElementById("formInventario");
@@ -101,9 +76,10 @@ formularioRegistroProducto.addEventListener('submit', async (e)=>{ //este formul
         let nombre = document.getElementById("nombre").value;
         let descripcion = document.getElementById("descripcion").value;
         let precio = parseInt(document.getElementById("precio").value);
-        let genero = document.getElementById("genero").value;
+        let genero = document.getElementById("generoSelect").value;
         let id_categoria = parseInt(document.getElementById("categoriaSelect").value);
-        let imagen = document.getElementById("imagen").value;
+        let imagen = document.getElementById("imagen").files[0];
+        imagen = imagen.name;
         try {
             const cargarProducto = await fetch('http://localhost:4000/api/cargarProducto', {
                 method: 'POST',
@@ -136,7 +112,7 @@ formularioRegistroProducto.addEventListener('submit', async (e)=>{ //este formul
 })
 
 
-async function cargarIDproductos(){  //Esta función carga los productos en el select del formulario de inventario
+async function cargarIDproductos(){     //Esta función carga los productos en el select del formulario de inventario
     try {
         const respuesta = await fetch("http://localhost:4000/api/obtenerProductos", {
             headers: {
@@ -164,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cargarIDproductos();
 });
 
-formularioInventario.addEventListener("submit", async (e) => { // este formulario carga el inventario de un producto
+formularioInventario.addEventListener("submit", async (e) => { //este formulario crea un inventario
     e.preventDefault();
     let talle = document.querySelector('[name="talles"]:checked').value;
     let color = document.getElementById("color").value;

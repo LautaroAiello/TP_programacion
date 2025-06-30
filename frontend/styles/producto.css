@@ -92,9 +92,9 @@
     margin: 8px;
     cursor: pointer;
 }
-.talles p:hover{
+/* .talles p:hover{
     background-color: grey;
-}
+} */
 
 .colores{
     /* position: absolute; */
@@ -110,9 +110,6 @@
      /* margin-left: 10px; */
     cursor: pointer;
     border-radius: 11px;
-}
-.colores p:hover{
-    background-color: rgb(209, 209, 209);
 }
 
 #formularioAdmin{
@@ -161,4 +158,12 @@
     font-weight: 600;
     font-size: 20px;
     margin-top: 15px;
+}
+
+.productoAgregado{
+    color: green;
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 20px;
+    display: flex;
 }

@@ -2,6 +2,22 @@ const rolUser = localStorage.getItem('rol');
 let productoUsuario = document.getElementById("productoUsuario");
 let formularioAdmin = document.getElementById("formularioAdmin");
 let formEditarProducto = document.getElementById("formEditarProducto");
+let datosProductos = document.getElementById("datosProductos");
+const selectCuota = document.getElementById("cuota");
+const precioCuota = document.getElementById("precioCuota");
+
+selectCuota.addEventListener("change", () => {
+    const precioProducto = document.getElementById("precioProducto").innerText;
+    const precio = parseFloat(precioProducto.replace(/[$.]/g, ''));
+    const cuotaSeleccionada = parseInt(selectCuota.value);
+    
+    if (cuotaSeleccionada > 0) {
+        const precioPorCuota = (precio / cuotaSeleccionada).toFixed(2);
+        precioCuota.innerText = `Precio por cuota: $${precioPorCuota}`;
+    } else {
+        precioCuota.innerText = "";
+    }   
+});
 
 document.addEventListener('DOMContentLoaded', async () => {
     
@@ -9,7 +25,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const btnAgregarProducto = document.getElementById("agregarProducto");
     
     let producto = await obtenerProductoPorId();
-    console.log(producto);
     if(rolUser === "Admin"){
         formularioAdmin.style.display = "grid";
         productoUsuario.style.display = "none";
@@ -22,6 +37,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
 })
+
+
 
 function obtenerIdProducto() {
     const urlParametro = new URLSearchParams(window.location.search);
@@ -48,7 +65,7 @@ async function obtenerProductoPorId() {
         }
 
         const producto = await respuesta.json();
-        console.log(producto)
+        console.log(producto);
         return producto;
         //document.getElementById("imagen").src = producto.imagen;
     } catch (error) {
@@ -58,6 +75,8 @@ async function obtenerProductoPorId() {
 }
 
 mostrarDatosAdmin = (producto)=>{
+    console.log(producto);
+    
      // Valida que el producto y su payload existen y tienen datos
     if (!producto || !producto.payload || !producto.payload[0]) {
         let mensajeErrorStock = document.getElementById("mensajeStockAdmin");
@@ -71,6 +90,7 @@ mostrarDatosAdmin = (producto)=>{
         document.getElementById("nombreProductoAdmin").value = producto.payload[0].producto;
         document.getElementById("descripcionProductoAdmin").value = producto.payload[0].descripcion;
         document.getElementById("precioProductoAdmin").value = producto.payload[0].precio;
+        document.getElementById("imgProducto").src = `../img/fotosRopa/${producto.payload[0].ulrImagen}`;
         document.getElementById("coloresProductoAdmin").value = "";
         document.getElementById("stockNuevo").disabled = true;
         let mensajeErrorStock = document.getElementById("mensajeStockAdmin");
@@ -84,6 +104,7 @@ mostrarDatosAdmin = (producto)=>{
         document.getElementById("descripcionProductoAdmin").value = producto.payload[0].descripcion;
         document.getElementById("precioProductoAdmin").value = producto.payload[0].precio;
         document.getElementById("coloresProductoAdmin").value = producto.payload[0].color;
+        document.getElementById("imgProductoAdmin").src = `../img/fotosRopa/${producto.payload[0].ulrImagen}`;
         document.getElementById("stockNuevo").disabled = false;
         const radiosTalle = document.querySelectorAll('input[name=\"talles\"]');
         radiosTalle.forEach(radio => {
@@ -100,6 +121,7 @@ mostrarDatosUser = (producto) => {
         let btnAgregarAlCarrito = document.getElementById("btnAgregarAlCarrito");
         let coloresProducto = document.getElementById("coloresProducto");
         let tallesProducto = document.getElementById("tallesProducto");
+        document.getElementById("imgProducto").src = `../img/fotosRopa/${producto.payload[0].ulrImagen}`;
         let cantidadTitulo = document.getElementById("cantidadTitulo");
         let stock = document.getElementById("stock");
         mensajeErrorStock.innerText = "Este producto no está disponible.";
@@ -114,9 +136,19 @@ mostrarDatosUser = (producto) => {
 
         return;
     }
+    console.log(producto);
     document.getElementById("nombreProducto").innerText = producto.payload[0].producto;
     document.getElementById("descripcionProducto").innerText = producto.payload[0].descripcion;
-    document.getElementById("precioProducto").innerText = producto.payload[0].precio;
+    let precioProducto = document.getElementById("precioProducto").innerText = `$${producto.payload[0].precio}`;
+    document.getElementById("coloresProducto").innerHTML += `
+                                                    <span>Color:</span>                           
+                                                             <p>${producto.payload[0].color}</p>
+    `;
+    document.getElementById("tallesProducto").innerHTML += `
+                                                    <span>Talle:</span>                           
+                                                             <p>${producto.payload[0].talle}</p>
+    `;
+    document.getElementById("imgProducto").src = `../img/fotosRopa/${producto.payload[0].ulrImagen}`;
 }
 
 
@@ -155,3 +187,35 @@ formEditarProducto.addEventListener("submit", async (e) =>{
         alert("Error al modificar stock.")
     }
 })
+
+agregarACarrito = async () => {  
+    const id_usuario = localStorage.getItem("id");
+    const tokenUser = localStorage.getItem("authToken");
+    let producto = await obtenerProductoPorId();
+    let id_inventario = producto.payload[0].idInventario;
+    if(!id_inventario) {
+        alert("Este producto no tiene inventario y no se puede agregar al carrito.");
+        return;
+    }else{
+        try {
+            fetch("http://localhost:4000/api/agregarACarrito", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `${tokenUser}`
+                },
+                body: JSON.stringify({id_inventario, id_usuario})
+            })
+            .then(res => res.json())
+            .then(data => {
+                datosProductos.innerHTML += `<p class="productoAgregado">Producto agregado al carrito correctamente.</p>`;
+                setTimeout(() => {
+                    window.location.reload()
+                }, 2000);
+            });
+        } catch (error) {
+            console.error("Error al agregar al carrito:", error);
+            alert("Ocurrió un error al intentar agregar el producto al carrito.");
+        }
+    }
+}

@@ -14,18 +14,40 @@
         <header>
             <nav class="nav" id="navbar">
                 <img class="imgBuscador" src="../img/buscador.png" alt="buscador">
-                <input type="text" placeholder="Buscar productos...">  
+                <input type="text" placeholder="Buscar productos..." id="buscador">  
 
                 <div class="navDetalles" id="navDetalles">
                     <p onclick="favoritos()" id="favoritos">Favoritos</p>
                     <p class="agregarProducto" id="agregarProducto">Agregar Productos</p>
-                    <select name="categorias" id="categorias">
-                        <option value="">Productos</option>
+                    <div class="dropdownProductos">
+                        <p class="productosBtn">Productos</p>
+                        <ul class="submenu">
+                            <li><a href="#" onclick="mostrarTodos()">Todos</a></li>
+                            <li class="sub-dropdown">
+                                <a href="#">Género</a>
+                                <ul class="subsubmenu">
+                                    <li><a href="#" onclick="filtrarPor('genero', 'masculino')">Masculino</a></li>
+                                    <li><a href="#" onclick="filtrarPor('genero', 'femenino')">Femenino</a></li>
+                                    <li><a href="#" onclick="filtrarPor('genero', 'unisex')">Unisex</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-dropdown">
+                                <a href="#">Categoría</a>
+                                <ul class="subsubmenu" id="submenuCategoria">
+                                </ul>
+                            </li>
+                            <li class="sub-dropdown">
+                                <a href="#">Color</a>
+                                <ul class="subsubmenu" id="submenuColor"></ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- <select name="categorias" id="categorias">
                         <option value="">Masculino</option>
                         <option value="">Femenino</option>
                         <option value="">Color</option>
                         <option value="">Categoria</option>
-                    </select>
+                    </select> -->
                     <p class="nombrePagina">Lana & Lino</p>
                     <img src="../img/profile-user.png" alt="perfilUsuario" class="perfilUsuario" onclick="perfilUsuario()">
                     <img src="../img/cart.png" id="carrito" alt="carrito" class="carrito" onclick="carrito()">
@@ -111,5 +133,6 @@
 <script src="../js/registroUsuarios.js"></script>
 <script src="../js/index.js"></script>
 <script src="../js/inicioSesion.js"></script>
+<script src="../js/filtrado.js"></script>
 </body>
 </html>
