@@ -356,143 +356,6 @@ p,h1,h2,button,select,input {
     font-size: 15px;
 }
 
-
-/* MODO OSCURO */
-
-body.modo-oscuro{
-    background-color: #101010;
-}
-body.modo-oscuro header{
-    background-color: #101010;
-}
-
-body.modo-oscuro .nav{
-    
-    box-shadow: 0px 0px 10px 5px rgb(103, 103, 103);
-    border: none;
-}
-body.modo-oscuro main{
-    background-color: #101010;
-}
-
-body.modo-oscuro .footer{
-    background-color: #292929;
-    box-shadow: 0px 0px 20px 20px black;
-}
-body.modo-oscuro .footer div{
-    background-color: #292929;
-}
-body.modo-oscuro .footer img{
-    background-color: #292929;
-}
-body.modo-oscuro .footer p{
-    background-color: #292929;
-    color: white;
-}
-
-body.modo-oscuro .carruselFotos{
-    background-color: #101010;
-}
-body.modo-oscuro .gridProducto{
-    background-color: #101010;
-}
-body.modo-oscuro .gridProducto div{
-    background-color: #101010;
-}
-body.modo-oscuro .datosProducto{
-    background-color: #101010;
-    color: white;
-}
-body.modo-oscuro .datosProducto h2{
-    background-color: #101010;
-    color: white;
-}
-body.modo-oscuro .datosProducto p{
-    background-color: #101010;
-    color: white;
-}
-body.modo-oscuro .datosProducto p:hover{
-    background-color: #474747;
-}
-body.modo-oscuro .datosProducto span{
-    background-color: #101010;
-    color: white;
-}
-body.modo-oscuro .agregarCarrito{
-    background-color: #101010;
-    color: white;
-    box-shadow: 0px 0px 10px 5px black;
-}
-body.modo-oscuro .card{
-    background-color: #2d2d2d;
-}
-body.modo-oscuro .card p{
-    background-color: #2d2d2d;
-    color: white;
-}
-body.modo-oscuro .descripcionCard{
-    background-color: #2d2d2d;
-}
-body.modo-oscuro .descripcionCard small{
-    background-color: #2d2d2d;
-    color: white;
-}
-body.modo-oscuro .btnAgregarCarrito{
-    background-color: #0c0c0c;
-    color: white;
-}
-body.modo-oscuro .stock small{
-    background-color: #0c0c0c;
-    color: white;
-}
-/* body.modo-oscuro .container,
-body.modo-oscuro .contenido,
-body.modo-oscuro section {
-  background-color: #101010;
-} */
-body.modo-oscuro .datosUsuario{
-    background-color: #101010;
-    color: white;
-}
-body.modo-oscuro .datosUsuario h1,body.modo-oscuro .datosUsuario button,body.modo-oscuro .datosUsuario div,body.modo-oscuro .datosUsuario img{
-    background-color: #101010;
-}
-body.modo-oscuro .datosUsuario img{
-    box-shadow: 0px 0px 8px 4px white;
-    border-radius: 30px;
-    padding: 5px;
-}
-body.modo-oscuro .datosUsuario button{
-    color: white;
-}
-body.modo-oscuro .carritoItems div{
-    border: 1px solid white;
-    background-color: #2d2d2d;
-}
-body.modo-oscuro .carritoItems img{
-    background-color: #2d2d2d;
-    border: none;
-}
-body.modo-oscuro .carritoItems{
-    background-color: #101010;
-}
-body.modo-oscuro .carritoItems p{
-    background-color: #2d2d2d;
-    color: white;
-}
-body.modo-oscuro .carritoItems section{
-    background-color: #2d2d2d;
-    color: white;
-}
-body.modo-oscuro .totalPagar{
-    background-color: #101010;
-    color: white;
-}
-body.modo-oscuro .totalPagar p,body.modo-oscuro .totalPagar button,body.modo-oscuro .totalPagar section{
-    background-color: #101010;
-    color: white;
-}
-
 .navbar ul {
   list-style: none;
   padding: 0;
@@ -600,4 +463,219 @@ body.modo-oscuro .totalPagar p,body.modo-oscuro .totalPagar button,body.modo-osc
 
 .subsubmenu li a:hover {
   background-color: #e0e0e0;
+}
+
+
+
+/* MODO OSCURO */
+
+body.modo-oscuro{
+    background-color: #101010;
+}
+body.modo-oscuro header{
+    background-color: #101010;
+}
+
+body.modo-oscuro .nav{
+    
+    box-shadow: 0px 0px 10px 5px rgb(103, 103, 103);
+    border: none;
+}
+body.modo-oscuro main{
+    background-color: #101010;
+}
+
+body.modo-oscuro .footer{
+    background-color: #292929;
+    box-shadow: 0px 0px 20px 20px black;
+}
+body.modo-oscuro .footer div{
+    background-color: #292929;
+}
+body.modo-oscuro .footer img{
+    background-color: #292929;
+}
+body.modo-oscuro .footer p{
+    background-color: #292929;
+    color: white;
+}
+
+body.modo-oscuro .carruselFotos{
+    background-color: #101010;
+}
+body.modo-oscuro .gridProducto{
+    background-color: #101010;
+}
+body.modo-oscuro .gridProducto div{
+    background-color: #101010;
+}
+body.modo-oscuro .datosProducto{
+    background-color: #101010;
+    color: white;
+}
+body.modo-oscuro .datosProducto h2{
+    background-color: #101010;
+    color: white;
+}
+body.modo-oscuro .datosProducto p{
+    background-color: #101010;
+    color: white;
+}
+body.modo-oscuro .datosProducto p:hover{
+    background-color: #474747;
+}
+body.modo-oscuro .datosProducto span{
+    background-color: #101010;
+    color: white;
+}
+body.modo-oscuro .agregarCarrito{
+    background-color: #101010;
+    color: white;
+    box-shadow: 0px 0px 10px 5px black;
+}
+body.modo-oscuro .card{
+    background-color: #2d2d2d;
+}
+body.modo-oscuro .card p{
+    background-color: #2d2d2d;
+    color: white;
+}
+body.modo-oscuro .descripcionCard{
+    background-color: #2d2d2d;
+}
+body.modo-oscuro .descripcionCard small{
+    background-color: #2d2d2d;
+    color: white;
+}
+body.modo-oscuro .btnAgregarCarrito{
+    background-color: #0c0c0c;
+    color: white;
+}
+body.modo-oscuro .stock small{
+    background-color: #0c0c0c;
+    color: white;
+}
+
+body.modo-oscuro .datosUsuario{
+    background-color: #101010;
+    color: white;
+}
+body.modo-oscuro .datosUsuario h1,body.modo-oscuro .datosUsuario button,body.modo-oscuro .datosUsuario div,body.modo-oscuro .datosUsuario img{
+    background-color: #101010;
+}
+body.modo-oscuro .datosUsuario img{
+    box-shadow: 0px 0px 8px 4px white;
+    border-radius: 30px;
+    padding: 5px;
+}
+body.modo-oscuro .datosUsuario button{
+    color: white;
+}
+body.modo-oscuro .carritoItems div{
+    border: 1px solid white;
+    background-color: #2d2d2d;
+}
+body.modo-oscuro .carritoItems img{
+    background-color: #2d2d2d;
+    border: none;
+}
+body.modo-oscuro .carritoItems{
+    background-color: #101010;
+}
+body.modo-oscuro .carritoItems p{
+    background-color: #2d2d2d;
+    color: white;
+}
+body.modo-oscuro .carritoItems section{
+    background-color: #2d2d2d;
+    color: white;
+}
+body.modo-oscuro .totalPagar{
+    background-color: #101010;
+    color: white;
+}
+body.modo-oscuro .totalPagar p,body.modo-oscuro .totalPagar button,body.modo-oscuro .totalPagar section{
+    background-color: #101010;
+    color: white;
+}
+
+body.modo-oscuro .tituloFavoritos{
+    color: white;
+    background-color: #101010;
+}
+body.modo-oscuro #modificarForm{
+    color: white;
+    background-color: #101010;
+}
+body.modo-oscuro #mensajeCarrito{
+    color: white;
+    background-color: #101010;
+}
+body.modo-oscuro .formAdmin{
+    color: white;
+    background-color: #101010;
+}
+body.modo-oscuro .formAdmin h1{
+    color: white;
+    background-color: #101010;
+}
+body.modo-oscuro #formCategoria{
+    color: white;
+    background-color: #101010;
+}
+body.modo-oscuro #formCategoria h2{
+    color: white;
+    background-color: #101010;
+}
+body.modo-oscuro #editarFormAdmin{
+    color: white;
+    background-color: #101010;
+}
+body.modo-oscuro #editarFormAdmin h2{
+    color: white;
+    background-color: #101010;
+}
+body.modo-oscuro #formInventario{
+    color: white;
+    background-color: #101010;
+}
+body.modo-oscuro #formInventario .talles{
+    color: white;
+    background-color: #101010;
+}
+body.modo-oscuro #formInventario .talles label{
+    color: white;
+    background-color: #101010;
+}
+body.modo-oscuro #formInventario h2{
+    color: white;
+    background-color: #101010;
+}
+body.modo-oscuro .mensajeExitoInventario{
+    color: rgb(45, 245, 27);
+    background-color: #101010;
+}
+body.modo-oscuro .mensajeExitoProducto{
+    color: rgb(45, 245, 27);
+    background-color: #101010;
+}
+body.modo-oscuro .mensajeExitoCategoria{
+    color: rgb(45, 245, 27);
+    background-color: #101010;
+}
+body.modo-oscuro   #formEditarProducto{
+    color: white;
+    background-color: #101010;
+}
+body.modo-oscuro   #formEditarProducto h1{
+    color: white;
+    background-color: #101010;
+}
+body.modo-oscuro   .tallesAdmin label{
+    color: white;
+    background-color: #101010;
+}
+body.modo-oscuro   #mensajeStockAdmin{
+    color: rgb(45, 245, 27);
+    background-color: #101010;
 }

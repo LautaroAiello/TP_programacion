@@ -68,7 +68,7 @@
     font-size: 19px;
 }
 
-#categoriaSelect, #productoSelect{
+#categoriaSelect, #productoSelect, #generoSelect{
     padding: 10px;
     width: 81%;
     margin: 7px;

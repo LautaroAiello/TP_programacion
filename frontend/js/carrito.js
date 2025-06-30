@@ -17,7 +17,11 @@ cargarCarrito = async()=>{
             });
     
             const productosCarrito = await cargarCarrito.payload;
-    
+            if (productosCarrito.length === 0) {
+                document.getElementById("mensajeCarrito").style.display = "block";
+                document.getElementById("btnPagarCarrito").style.display = "none";
+                return;
+            }
             // Agrupar productos por idInventario
             const productosAgrupados = {};
             productosCarrito.forEach(p => {

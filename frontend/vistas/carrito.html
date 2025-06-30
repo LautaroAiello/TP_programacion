@@ -71,17 +71,11 @@
                 </form>
             </div>
                 <div class="carritoItems" id="carritoItems">
-                    <!-- <div class="itemCarrito">
-                        <img src="../img/remera1.jpg" alt="remera" class="imgCarritoPrenda">
-                        <p>Remera</p>
-                        <p class="precioUnidad"></p>
-                        <p class="cantidad">1</p>
-                        <img src="../img/trash-can.png" alt="eliminar" onclick="eliminarItem(event)" class="eliminar">
-                    </div> -->
+                    <h1 id="mensajeCarrito">No tienes productos cargados al carrito!</h1>
                 </div>
                 <section class="totalPagar">
                     <p id="total"></p>
-                    <button onclick="irAPagar()">Pagar</button>
+                    <button onclick="irAPagar()" id="btnPagarCarrito">Pagar</button>
                 </section>
 
 
