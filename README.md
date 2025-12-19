@@ -15,21 +15,9 @@ CSS3
 
 JavaScript (Vanilla JS)
 
-Backend provided by the course (not modifiable)
+Backend provided by the course
 
 No frameworks or external libraries were used, as required by the assignment.
-
-⚙️ Environment & Setup
-Node.js Version
-
-This project was developed using Node.js v16.14.0.
-Using this version is recommended for proper execution.
-
-Run the Project
-
-From the root directory:
-
-npm run dev
 
 ✨ Features
 👤 User Roles
