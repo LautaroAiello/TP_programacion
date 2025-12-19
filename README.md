@@ -86,7 +86,8 @@ This project was developed as Practical Assignment 1, following all technical an
 
 👨‍💻 Author
 
-Lautaro Aiello, Santiago Cacciabue
+Lautaro Aiello and Santiago Cacciabue
+
 Highers Technicians in Software Development
 
 📌 Notes
